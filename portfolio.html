@@ -17,7 +17,22 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tp);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;overflow-x:hidden;cursor:none}
+body::before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .7;
 
+      background: url('./noise.webp');
+      background-repeat: repeat;
+      background-size: 257px auto;
+      pointer-events: none;
+      z-index: 999;
+    }
 /* CURSOR */
 #cd{width:8px;height:8px;background:var(--ac);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;will-change:transform}
 #cr{width:36px;height:36px;border:1.5px solid rgba(14,165,233,.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;will-change:transform;transition:width .25s,height .25s,border-color .25s}

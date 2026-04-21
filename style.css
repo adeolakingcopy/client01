@@ -1551,6 +1551,10 @@
      grid-template-columns: 420px 1fr;
      gap: 80px;
      align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 10%;
+    overflow: hidden;
  }
 
  .about-img-wrap {

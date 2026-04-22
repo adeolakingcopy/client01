@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — Femi Maven Motion Design</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Femi Maven Motion Design</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
-:root{
-  --bg:#030714; --bg2:#0a1628; --bg3:#071122;
-  --ac:#0ea5e9; --acg:rgba(14,165,233,.12); --acgs:rgba(14,165,233,.3);
-  --tp:#f0f4ff; --tm:#7a8fa8; --td:#3a4f6a;
-  --b:rgba(14,165,233,.1); --bh:rgba(14,165,233,.38);
-}
+    :root {
+      --bg: #030714;
+      --bg2: #0a1628;
+      --bg3: #071122;
+      --ac: #0ea5e9;
+      --acg: rgba(14, 165, 233, .12);
+      --acgs: rgba(14, 165, 233, .3);
+      --tp: #f0f4ff;
+      --tm: #7a8fa8;
+      --td: #3a4f6a;
+      --b: rgba(14, 165, 233, .1);
+      --bh: rgba(14, 165, 233, .38);
+    }
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tp);font-family:'DM Sans','Segoe UI',system-ui,sans-serif;overflow-x:hidden;cursor:none}
-body::before {
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--tp);
+      font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+      overflow-x: hidden;
+      cursor: none
+    }
+
+    body::before {
       content: '';
       display: block;
       position: fixed;
@@ -33,748 +58,1827 @@ body::before {
       pointer-events: none;
       z-index: 999;
     }
-/* CURSOR */
-#cd{width:8px;height:8px;background:var(--ac);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;will-change:transform}
-#cr{width:36px;height:36px;border:1.5px solid rgba(14,165,233,.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;will-change:transform;transition:width .25s,height .25s,border-color .25s}
-#cr.big{width:58px;height:58px;border-color:var(--ac)}
 
-/* CANVAS */
-#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+    /* CURSOR */
+    #cd {
+      width: 8px;
+      height: 8px;
+      background: var(--ac);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform
+    }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(3,7,20,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--b)}
-.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.55rem;letter-spacing:4px;color:var(--tp);text-decoration:none}
-.logo em{color:var(--ac);font-style:normal}
-.nav-ul{display:flex;gap:40px;list-style:none;align-items:center}
-.nav-ul a{color:var(--tm);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:1.6px;text-transform:uppercase;transition:color .25s;position:relative}
-.nav-ul a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--ac);transform:scaleX(0);transition:transform .25s}
-.nav-ul a:hover,.nav-ul a.active{color:var(--tp)}
-.nav-ul a:hover::after,.nav-ul a.active::after{transform:scaleX(1)}
-.ncta{background:var(--ac)!important;color:#030714!important;padding:10px 24px!important;border-radius:4px;font-weight:700!important}
-.ncta:hover{box-shadow:0 0 26px rgba(14,165,233,.55)!important}
-.ncta::after{display:none!important}
+    #cr {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid rgba(14, 165, 233, .45);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      will-change: transform;
+      transition: width .25s, height .25s, border-color .25s
+    }
 
-/* LAYOUT */
-.wrap{max-width:1200px;margin:0 auto;padding:0 60px}
+    #cr.big {
+      width: 58px;
+      height: 58px;
+      border-color: var(--ac)
+    }
 
-/* HERO BANNER */
-#phero{position:relative;z-index:10;padding:160px 0 80px;text-align:center;overflow:hidden}
-#phero::before{content:'';position:absolute;width:900px;height:500px;background:radial-gradient(ellipse,rgba(14,165,233,.06),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.eye{font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px}
-.eye::before{content:'';width:22px;height:1px;background:var(--ac)}
-.eye::after{content:'';width:22px;height:1px;background:var(--ac)}
-.phero-h{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(4rem,9vw,9rem);line-height:.9;letter-spacing:2px;color:var(--tp);margin-bottom:24px}
-.phero-h .ac{color:var(--ac)}
-.phero-sub{font-size:1.05rem;color:var(--tm);max-width:580px;margin:0 auto;line-height:1.8;font-weight:300}
+    /* CANVAS */
+    #bgc {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .5
+    }
 
-/* STATS STRIP */
-.pstats{display:flex;gap:0;border-top:1px solid var(--b);border-bottom:1px solid var(--b);margin-top:60px;position:relative;z-index:10}
-.pstat{flex:1;padding:28px 20px;text-align:center;border-right:1px solid var(--b)}
-.pstat:last-child{border-right:none}
-.pstat-n{font-family:'Bebas Neue',Impact,sans-serif;font-size:2.6rem;color:var(--ac);line-height:1;display:block}
-.pstat-l{font-size:.68rem;color:var(--tm);letter-spacing:1.8px;text-transform:uppercase;margin-top:6px;display:block}
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 22px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(3, 7, 20, .92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--b)
+    }
 
-/* FILTERS */
-#filters{position:relative;z-index:10;padding:56px 0 40px}
-.filter-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
-.ftag{padding:9px 22px;border:1px solid var(--b);border-radius:100px;font-size:.78rem;font-weight:600;letter-spacing:1px;color:var(--tm);background:transparent;cursor:none;transition:all .25s;letter-spacing:1.2px;text-transform:uppercase}
-.ftag:hover{border-color:var(--bh);color:var(--tp)}
-.ftag.on{background:var(--ac);border-color:var(--ac);color:#030714}
+    .logo {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 1.55rem;
+      letter-spacing: 4px;
+      color: var(--tp);
+      text-decoration: none
+    }
 
-/* GRID */
-#pgrid{position:relative;z-index:10;padding-bottom:120px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);border:1px solid var(--b)}
+    .logo em {
+      color: var(--ac);
+      font-style: normal
+    }
 
-/* PROJECT CARD */
-.pcard{background:var(--bg);position:relative;overflow:hidden;cursor:none;transition:background .35s}
-.pcard:hover{background:var(--bg3)}
-.pcard-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--bg2)}
-.pcard-thumb-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--bg2),var(--bg3))}
-.pcard-thumb-ph::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.03) 1px,transparent 1px);background-size:40px 40px}
-.thumb-icon{width:52px;height:52px;border:1px solid rgba(14,165,233,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
-.thumb-icon svg{width:22px;height:22px;stroke:var(--ac);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .nav-ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      align-items: center
+    }
 
-/* hover overlay */
-.pcard-overlay{position:absolute;inset:0;background:rgba(3,7,20,.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s;backdrop-filter:blur(4px)}
-.pcard:hover .pcard-overlay{opacity:1}
-.view-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#030714;padding:12px 24px;border-radius:4px;font-family:'Space Grotesk',system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.8px;transform:translateY(8px);transition:transform .35s}
-.pcard:hover .view-btn{transform:translateY(0)}
+    .nav-ul a {
+      color: var(--tm);
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      transition: color .25s;
+      position: relative
+    }
 
-/* card category tag */
-.pcard-cat{position:absolute;top:12px;left:12px;z-index:2;padding:4px 12px;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(14,165,233,.3);background:rgba(3,7,20,.8);color:var(--ac);backdrop-filter:blur(8px)}
+    .nav-ul a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--ac);
+      transform: scaleX(0);
+      transition: transform .25s
+    }
 
-/* card body */
-.pcard-body{padding:28px 30px 32px}
-.pcard-title{font-family:'Space Grotesk',system-ui,sans-serif;font-size:1.05rem;font-weight:800;color:var(--tp);margin-bottom:8px;line-height:1.3}
-.pcard-client{font-size:.75rem;color:var(--ac);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px}
-.pcard-client::before{content:'';width:14px;height:1px;background:var(--ac)}
-.pcard-desc{font-size:.85rem;color:var(--tm);line-height:1.7;font-weight:300}
-.pcard-result{margin-top:16px;padding:12px 16px;background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.15);border-radius:6px;font-size:.78rem;color:var(--ac);font-weight:500;display:flex;align-items:flex-start;gap:9px}
-.pcard-result svg{width:14px;height:14px;flex-shrink:0;margin-top:2px}
-.pcard-result strong{color:var(--tp)}
+    .nav-ul a:hover,
+    .nav-ul a.active {
+      color: var(--tp)
+    }
 
-/* tag chips on card */
-.pcard-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
-.ptag{padding:4px 10px;border:1px solid var(--b);border-radius:100px;font-size:.68rem;color:var(--td);letter-spacing:.8px}
+    .nav-ul a:hover::after,
+    .nav-ul a.active::after {
+      transform: scaleX(1)
+    }
 
-/* MODAL */
-#modal-bg{position:fixed;inset:0;z-index:500;background:rgba(3,7,20,.92);backdrop-filter:blur(12px);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
-#modal-bg.open{display:flex}
-#modal{background:var(--bg2);border:1px solid var(--bh);border-radius:16px;width:100%;max-width:900px;position:relative;overflow:hidden;animation:mopen .4s cubic-bezier(.16,1,.3,1)}
-@keyframes mopen{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    .ncta {
+      background: var(--ac) !important;
+      color: #030714 !important;
+      padding: 10px 24px !important;
+      border-radius: 4px;
+      font-weight: 700 !important
+    }
 
-.modal-close{position:absolute;top:20px;right:20px;z-index:10;width:40px;height:40px;border:1px solid var(--bh);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--bg3);cursor:none;transition:background .25s,border-color .25s}
-.modal-close:hover{background:var(--ac);border-color:var(--ac)}
-.modal-close svg{width:16px;height:16px;stroke:var(--tm);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
-.modal-close:hover svg{stroke:#030714}
+    .ncta:hover {
+      box-shadow: 0 0 26px rgba(14, 165, 233, .55) !important
+    }
 
-/* modal video / thumb */
-.modal-visual{position:relative;aspect-ratio:16/9;background:linear-gradient(145deg,var(--bg3),#020b18);overflow:hidden}
-.modal-visual::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.03) 1px,transparent 1px);background-size:52px 52px}
-.modal-vis-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
-.modal-play{width:70px;height:70px;border-radius:50%;background:rgba(14,165,233,.1);border:1.5px solid rgba(14,165,233,.4);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:background .3s,transform .3s;cursor:none}
-.modal-play:hover{background:var(--ac);transform:scale(1.08);box-shadow:0 0 40px rgba(14,165,233,.5)}
-.modal-play svg{width:24px;height:24px;fill:var(--ac);margin-left:4px;transition:fill .3s}
-.modal-play:hover svg{fill:#030714}
-.modal-vis-label{font-size:.72rem;color:var(--tm);letter-spacing:2px;text-transform:uppercase;position:relative;z-index:1}
-/* corner brackets on modal visual */
-.mvc{position:absolute;width:20px;height:20px}
-.mvc.tl{top:16px;left:16px;border-top:2px solid rgba(14,165,233,.35);border-left:2px solid rgba(14,165,233,.35)}
-.mvc.tr{top:16px;right:16px;border-top:2px solid rgba(14,165,233,.35);border-right:2px solid rgba(14,165,233,.35)}
-.mvc.bl{bottom:16px;left:16px;border-bottom:2px solid rgba(14,165,233,.35);border-left:2px solid rgba(14,165,233,.35)}
-.mvc.br{bottom:16px;right:16px;border-bottom:2px solid rgba(14,165,233,.35);border-right:2px solid rgba(14,165,233,.35)}
+    .ncta::after {
+      display: none !important
+    }
 
-/* modal content */
-.modal-content{padding:40px 44px 48px}
-.modal-cat-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.modal-cat{padding:5px 14px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(14,165,233,.3);color:var(--ac)}
-.modal-client-tag{font-size:.72rem;color:var(--td);letter-spacing:1.5px;text-transform:uppercase}
-.modal-title{font-family:'Space Grotesk',system-ui,sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.15;color:var(--tp);margin-bottom:12px}
-.modal-tagline{font-size:1rem;color:var(--tm);line-height:1.75;font-weight:300;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--b)}
+    /* LAYOUT */
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px
+    }
 
-/* 3-col brief/result/impact */
-.modal-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:8px;overflow:hidden;margin-bottom:32px}
-.m3cell{background:var(--bg3);padding:24px 22px}
-.m3label{font-size:.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ac);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.m3label svg{width:13px;height:13px;stroke:var(--ac);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.m3val{font-size:.88rem;color:var(--tm);line-height:1.7;font-weight:300}
-.m3val strong{color:var(--tp);font-weight:500}
+    /* HERO BANNER */
+    #phero {
+      position: relative;
+      z-index: 10;
+      padding: 160px 0 80px;
+      text-align: center;
+      overflow: hidden
+    }
 
-/* before/after */
-.ba-wrap{margin-bottom:32px}
-.ba-title{font-family:'Space Grotesk',system-ui,sans-serif;font-size:.85rem;font-weight:700;color:var(--tp);letter-spacing:.5px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.ba-title::after{content:'';flex:1;height:1px;background:var(--b)}
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ba-card{padding:20px 22px;border-radius:8px;border:1px solid var(--b)}
-.ba-card.before{background:rgba(255,80,80,.04);border-color:rgba(255,80,80,.15)}
-.ba-card.after{background:rgba(14,165,233,.04);border-color:rgba(14,165,233,.2)}
-.ba-head{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:7px}
-.ba-card.before .ba-head{color:#f87171}
-.ba-card.after .ba-head{color:var(--ac)}
-.ba-head svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.ba-text{font-size:.85rem;color:var(--tm);line-height:1.7;font-weight:300}
+    #phero::before {
+      content: '';
+      position: absolute;
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(14, 165, 233, .06), transparent 65%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none
+    }
 
-/* key results */
-.results-wrap{margin-bottom:32px}
-.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-.res-card{padding:18px 20px;background:rgba(14,165,233,.05);border:1px solid rgba(14,165,233,.14);border-radius:8px;text-align:center}
-.res-num{font-family:'Bebas Neue',Impact,sans-serif;font-size:2.2rem;color:var(--ac);line-height:1;display:block}
-.res-lbl{font-size:.7rem;color:var(--tm);letter-spacing:1.2px;text-transform:uppercase;margin-top:4px;display:block}
+    .eye {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ac);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px
+    }
 
-/* tools used */
-.tools-row{display:flex;flex-wrap:wrap;gap:8px}
-.tool-chip{padding:6px 14px;border:1px solid var(--b);border-radius:100px;font-size:.75rem;color:var(--tm);background:var(--bg3)}
+    .eye::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--ac)
+    }
 
-/* modal footer */
-.modal-footer{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--b)}
-.btn-p{background:var(--ac);color:#030714;padding:14px 30px;font-family:'Space Grotesk',system-ui,sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.8px;border-radius:4px;border:none;cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:box-shadow .3s,transform .2s}
-.btn-p:hover{box-shadow:0 0 30px rgba(14,165,233,.5);transform:translateY(-2px)}
-.btn-g{background:transparent;color:var(--tp);padding:14px 30px;font-family:'Space Grotesk',system-ui,sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.8px;border-radius:4px;border:1px solid var(--bh);cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .3s,background .3s,transform .2s}
-.btn-g:hover{border-color:var(--ac);background:var(--acg);transform:translateY(-2px)}
+    .eye::after {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--ac)
+    }
 
-/* EMPTY STATE */
-.empty{grid-column:1/-1;padding:80px 20px;text-align:center;color:var(--td);font-size:.9rem}
+    .phero-h {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: clamp(4rem, 9vw, 9rem);
+      line-height: .9;
+      letter-spacing: 2px;
+      color: var(--tp);
+      margin-bottom: 24px
+    }
 
-/* REVEAL */
-.rv{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
-.rv.hi{opacity:0;transform:translateY(28px)}
-.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
-.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}.rv.d6{transition-delay:.48s}
+    .phero-h .ac {
+      color: var(--ac)
+    }
 
-/* FOOTER */
-footer{padding:36px 60px;border-top:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
-.flogo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.3rem;letter-spacing:4px;color:var(--tp);text-decoration:none}
-.flogo em{color:var(--ac);font-style:normal}
-.fcopy{font-size:.75rem;color:var(--td)}
-.flinks{display:flex;gap:24px}
-.flinks a{font-size:.75rem;color:var(--td);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
-.flinks a:hover{color:var(--ac)}
+    .phero-sub {
+      font-size: 1.05rem;
+      color: var(--tm);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-weight: 300
+    }
 
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-@keyframes vpglow{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.2);opacity:1}}
+    /* STATS STRIP */
+    .pstats {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid var(--b);
+      border-bottom: 1px solid var(--b);
+      margin-top: 60px;
+      position: relative;
+      z-index: 10
+    }
 
-@media(max-width:1024px){nav,footer{padding-left:28px;padding-right:28px}.wrap{padding:0 28px}.grid{grid-template-columns:repeat(2,1fr)}.modal-3col,.ba-grid,.results-grid{grid-template-columns:1fr}.modal-content{padding:28px 24px 36px}.modal-footer{flex-direction:column;gap:12px}}
-@media(max-width:768px){.nav-ul{display:none}.grid{grid-template-columns:1fr}.pstats{flex-wrap:wrap}.pstat{flex:1 1 50%;border-bottom:1px solid var(--b)}}
-</style>
+    .pstat {
+      flex: 1;
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid var(--b)
+    }
+
+    .pstat:last-child {
+      border-right: none
+    }
+
+    .pstat-n {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 2.6rem;
+      color: var(--ac);
+      line-height: 1;
+      display: block
+    }
+
+    .pstat-l {
+      font-size: .68rem;
+      color: var(--tm);
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-top: 6px;
+      display: block
+    }
+
+    /* FILTERS */
+    #filters {
+      position: relative;
+      z-index: 10;
+      padding: 56px 0 40px
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center
+    }
+
+    .ftag {
+      padding: 9px 22px;
+      border: 1px solid var(--b);
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--tm);
+      background: transparent;
+      cursor: none;
+      transition: all .25s;
+      letter-spacing: 1.2px;
+      text-transform: uppercase
+    }
+
+    .ftag:hover {
+      border-color: var(--bh);
+      color: var(--tp)
+    }
+
+    .ftag.on {
+      background: var(--ac);
+      border-color: var(--ac);
+      color: #030714
+    }
+
+    /* GRID */
+    #pgrid {
+      position: relative;
+      z-index: 10;
+      padding-bottom: 120px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--b);
+      border: 1px solid var(--b)
+    }
+
+    /* PROJECT CARD */
+    .pcard {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      transition: background .35s
+    }
+
+    .pcard:hover {
+      background: var(--bg3)
+    }
+
+    .pcard-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--bg2)
+    }
+
+    .pcard-thumb-ph {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, var(--bg2), var(--bg3))
+    }
+
+    .pcard-thumb-ph::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(14, 165, 233, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, .03) 1px, transparent 1px);
+      background-size: 40px 40px
+    }
+
+    .thumb-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(14, 165, 233, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1
+    }
+
+    .thumb-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--ac);
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
+    /* hover overlay */
+    .pcard-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(3, 7, 20, .85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .35s;
+      backdrop-filter: blur(4px)
+    }
+
+    .pcard:hover .pcard-overlay {
+      opacity: 1
+    }
+
+    .view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ac);
+      color: #030714;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      transform: translateY(8px);
+      transition: transform .35s
+    }
+
+    .pcard:hover .view-btn {
+      transform: translateY(0)
+    }
+
+    /* card category tag */
+    .pcard-cat {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(14, 165, 233, .3);
+      background: rgba(3, 7, 20, .8);
+      color: var(--ac);
+      backdrop-filter: blur(8px)
+    }
+
+    /* card body */
+    .pcard-body {
+      padding: 28px 30px 32px
+    }
+
+    .pcard-title {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--tp);
+      margin-bottom: 8px;
+      line-height: 1.3
+    }
+
+    .pcard-client {
+      font-size: .75rem;
+      color: var(--ac);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .pcard-client::before {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: var(--ac)
+    }
+
+    .pcard-desc {
+      font-size: .85rem;
+      color: var(--tm);
+      line-height: 1.7;
+      font-weight: 300
+    }
+
+    .pcard-result {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(14, 165, 233, .06);
+      border: 1px solid rgba(14, 165, 233, .15);
+      border-radius: 6px;
+      font-size: .78rem;
+      color: var(--ac);
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px
+    }
+
+    .pcard-result svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 2px
+    }
+
+    .pcard-result strong {
+      color: var(--tp)
+    }
+
+    /* tag chips on card */
+    .pcard-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 16px
+    }
+
+    .ptag {
+      padding: 4px 10px;
+      border: 1px solid var(--b);
+      border-radius: 100px;
+      font-size: .68rem;
+      color: var(--td);
+      letter-spacing: .8px
+    }
+
+    /* MODAL */
+    #modal-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(3, 7, 20, .92);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto
+    }
+
+    #modal-bg.open {
+      display: flex
+    }
+
+    #modal {
+      background: var(--bg2);
+      border: 1px solid var(--bh);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      animation: mopen .4s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    @keyframes mopen {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--bh);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg3);
+      cursor: none;
+      transition: background .25s, border-color .25s
+    }
+
+    .modal-close:hover {
+      background: var(--ac);
+      border-color: var(--ac)
+    }
+
+    .modal-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--tm);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke .25s
+    }
+
+    .modal-close:hover svg {
+      stroke: #030714
+    }
+
+    /* modal video / thumb */
+    .modal-visual {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: linear-gradient(145deg, var(--bg3), #020b18);
+      overflow: hidden
+    }
+
+    .modal-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(14, 165, 233, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, .03) 1px, transparent 1px);
+      background-size: 52px 52px
+    }
+
+    .modal-vis-ph {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .modal-play {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(14, 165, 233, .1);
+      border: 1.5px solid rgba(14, 165, 233, .4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      transition: background .3s, transform .3s;
+      cursor: none
+    }
+
+    .modal-play:hover {
+      background: var(--ac);
+      transform: scale(1.08);
+      box-shadow: 0 0 40px rgba(14, 165, 233, .5)
+    }
+
+    .modal-play svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--ac);
+      margin-left: 4px;
+      transition: fill .3s
+    }
+
+    .modal-play:hover svg {
+      fill: #030714
+    }
+
+    .modal-vis-label {
+      font-size: .72rem;
+      color: var(--tm);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1
+    }
+
+    /* corner brackets on modal visual */
+    .mvc {
+      position: absolute;
+      width: 20px;
+      height: 20px
+    }
+
+    .mvc.tl {
+      top: 16px;
+      left: 16px;
+      border-top: 2px solid rgba(14, 165, 233, .35);
+      border-left: 2px solid rgba(14, 165, 233, .35)
+    }
+
+    .mvc.tr {
+      top: 16px;
+      right: 16px;
+      border-top: 2px solid rgba(14, 165, 233, .35);
+      border-right: 2px solid rgba(14, 165, 233, .35)
+    }
+
+    .mvc.bl {
+      bottom: 16px;
+      left: 16px;
+      border-bottom: 2px solid rgba(14, 165, 233, .35);
+      border-left: 2px solid rgba(14, 165, 233, .35)
+    }
+
+    .mvc.br {
+      bottom: 16px;
+      right: 16px;
+      border-bottom: 2px solid rgba(14, 165, 233, .35);
+      border-right: 2px solid rgba(14, 165, 233, .35)
+    }
+
+    /* modal content */
+    .modal-content {
+      padding: 40px 44px 48px
+    }
+
+    .modal-cat-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px
+    }
+
+    .modal-cat {
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(14, 165, 233, .3);
+      color: var(--ac)
+    }
+
+    .modal-client-tag {
+      font-size: .72rem;
+      color: var(--td);
+      letter-spacing: 1.5px;
+      text-transform: uppercase
+    }
+
+    .modal-title {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--tp);
+      margin-bottom: 12px
+    }
+
+    .modal-tagline {
+      font-size: 1rem;
+      color: var(--tm);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--b)
+    }
+
+    /* 3-col brief/result/impact */
+    .modal-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--b);
+      border: 1px solid var(--b);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 32px
+    }
+
+    .m3cell {
+      background: var(--bg3);
+      padding: 24px 22px
+    }
+
+    .m3label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .m3label svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--ac);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
+    .m3val {
+      font-size: .88rem;
+      color: var(--tm);
+      line-height: 1.7;
+      font-weight: 300
+    }
+
+    .m3val strong {
+      color: var(--tp);
+      font-weight: 500
+    }
+
+    /* before/after */
+    .ba-wrap {
+      margin-bottom: 32px
+    }
+
+    .ba-title {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--tp);
+      letter-spacing: .5px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .ba-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--b)
+    }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .ba-card {
+      padding: 20px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--b)
+    }
+
+    .ba-card.before {
+      background: rgba(255, 80, 80, .04);
+      border-color: rgba(255, 80, 80, .15)
+    }
+
+    .ba-card.after {
+      background: rgba(14, 165, 233, .04);
+      border-color: rgba(14, 165, 233, .2)
+    }
+
+    .ba-head {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .ba-card.before .ba-head {
+      color: #f87171
+    }
+
+    .ba-card.after .ba-head {
+      color: var(--ac)
+    }
+
+    .ba-head svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
+    .ba-text {
+      font-size: .85rem;
+      color: var(--tm);
+      line-height: 1.7;
+      font-weight: 300
+    }
+
+    /* key results */
+    .results-wrap {
+      margin-bottom: 32px
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px
+    }
+
+    .res-card {
+      padding: 18px 20px;
+      background: rgba(14, 165, 233, .05);
+      border: 1px solid rgba(14, 165, 233, .14);
+      border-radius: 8px;
+      text-align: center
+    }
+
+    .res-num {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 2.2rem;
+      color: var(--ac);
+      line-height: 1;
+      display: block
+    }
+
+    .res-lbl {
+      font-size: .7rem;
+      color: var(--tm);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      display: block
+    }
+
+    /* tools used */
+    .tools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .tool-chip {
+      padding: 6px 14px;
+      border: 1px solid var(--b);
+      border-radius: 100px;
+      font-size: .75rem;
+      color: var(--tm);
+      background: var(--bg3)
+    }
+
+    /* modal footer */
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid var(--b)
+    }
+
+    .btn-p {
+      background: var(--ac);
+      color: #030714;
+      padding: 14px 30px;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      border-radius: 4px;
+      border: none;
+      cursor: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: box-shadow .3s, transform .2s
+    }
+
+    .btn-p:hover {
+      box-shadow: 0 0 30px rgba(14, 165, 233, .5);
+      transform: translateY(-2px)
+    }
+
+    .btn-g {
+      background: transparent;
+      color: var(--tp);
+      padding: 14px 30px;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .8px;
+      border-radius: 4px;
+      border: 1px solid var(--bh);
+      cursor: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color .3s, background .3s, transform .2s
+    }
+
+    .btn-g:hover {
+      border-color: var(--ac);
+      background: var(--acg);
+      transform: translateY(-2px)
+    }
+
+    /* EMPTY STATE */
+    .empty {
+      grid-column: 1/-1;
+      padding: 80px 20px;
+      text-align: center;
+      color: var(--td);
+      font-size: .9rem
+    }
+
+    /* REVEAL */
+    .rv {
+      opacity: 1;
+      transform: none;
+      transition: opacity .7s ease, transform .7s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .rv.hi {
+      opacity: 0;
+      transform: translateY(28px)
+    }
+
+    .rv.d1 {
+      transition-delay: .08s
+    }
+
+    .rv.d2 {
+      transition-delay: .16s
+    }
+
+    .rv.d3 {
+      transition-delay: .24s
+    }
+
+    .rv.d4 {
+      transition-delay: .32s
+    }
+
+    .rv.d5 {
+      transition-delay: .4s
+    }
+
+    .rv.d6 {
+      transition-delay: .48s
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 60px;
+      border-top: 1px solid var(--b);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10
+    }
+
+    .flogo {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 4px;
+      color: var(--tp);
+      text-decoration: none
+    }
+
+    .flogo em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .fcopy {
+      font-size: .75rem;
+      color: var(--td)
+    }
+
+    .flinks {
+      display: flex;
+      gap: 24px
+    }
+
+    .flinks a {
+      font-size: .75rem;
+      color: var(--td);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color .3s
+    }
+
+    .flinks a:hover {
+      color: var(--ac)
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .25
+      }
+    }
+
+    @keyframes vpglow {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .6
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1
+      }
+    }
+
+    @media(max-width:1024px) {
+
+      nav,
+      footer {
+        padding-left: 28px;
+        padding-right: 28px
+      }
+
+      .wrap {
+        padding: 0 28px
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .modal-3col,
+      .ba-grid,
+      .results-grid {
+        grid-template-columns: 1fr
+      }
+
+      .modal-content {
+        padding: 28px 24px 36px
+      }
+
+      .modal-footer {
+        flex-direction: column;
+        gap: 12px
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-ul {
+        display: none
+      }
+
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .pstats {
+        flex-wrap: wrap
+      }
+
+      .pstat {
+        flex: 1 1 50%;
+        border-bottom: 1px solid var(--b)
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="cd"></div>
-<div id="cr"></div>
-<canvas id="bgc"></canvas>
+  <div id="cd"></div>
+  <div id="cr"></div>
+  <canvas id="bgc"></canvas>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="logo">FEMI<em>.</em>MAVEN</a>
-  <ul class="nav-ul">
-    <li><a href="femi-maven.html#work">Work</a></li>
-    <li><a href="femi-maven.html#services">Services</a></li>
-    <li><a href="femi-maven.html#process">Process</a></li>
-    <li><a href="femi-maven.html#about">About</a></li>
-    <li><a href="femi-maven.html#cta" class="ncta">Let's Work</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">FEMI<em>.</em>MAVEN</a>
+    <ul class="nav-ul">
+      <li><a href="femi-maven.html#work">Work</a></li>
+      <li><a href="femi-maven.html#services">Services</a></li>
+      <li><a href="femi-maven.html#process">Process</a></li>
+      <li><a href="femi-maven.html#about">About</a></li>
+      <li><a href="femi-maven.html#cta" class="ncta">Let's Work</a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section id="phero">
-  <div class="wrap">
-    <div class="eye rv">Case Studies</div>
-    <h1 class="phero-h rv d1">60+ Projects.<br><span class="ac">Real Results.</span></h1>
-    <p class="phero-sub rv d2">Every project here had a goal beyond looking good. Browse the work, read the story behind it, and see what motion design actually does for a brand.</p>
-    <div class="pstats rv d3">
-      <div class="pstat"><span class="pstat-n" data-to="60" data-suf="+">0+</span><span class="pstat-l">Projects Delivered</span></div>
-      <div class="pstat"><span class="pstat-n" data-to="8" data-suf="+">0+</span><span class="pstat-l">Brands Served</span></div>
-      <div class="pstat"><span class="pstat-n" data-to="3" data-suf="">0</span><span class="pstat-l">Industries</span></div>
-      <div class="pstat"><span class="pstat-n" data-to="100" data-suf="%">0%</span><span class="pstat-l">Client Satisfaction</span></div>
-      <div class="pstat"><span class="pstat-n" data-to="5" data-suf="+">0+</span><span class="pstat-l">Years Experience</span></div>
+  <!-- HERO -->
+  <section id="phero">
+    <div class="wrap">
+      <div class="eye rv">Case Studies</div>
+      <h1 class="phero-h rv d1">60+ Projects.<br><span class="ac">Real Results.</span></h1>
+      <p class="phero-sub rv d2">Every project here had a goal beyond looking good. Browse the work, read the story
+        behind it, and see what motion design actually does for a brand.</p>
+      <div class="pstats rv d3">
+        <div class="pstat"><span class="pstat-n" data-to="60" data-suf="+">0+</span><span class="pstat-l">Projects
+            Delivered</span></div>
+        <div class="pstat"><span class="pstat-n" data-to="8" data-suf="+">0+</span><span class="pstat-l">Brands
+            Served</span></div>
+        <div class="pstat"><span class="pstat-n" data-to="3" data-suf="">0</span><span class="pstat-l">Industries</span>
+        </div>
+        <div class="pstat"><span class="pstat-n" data-to="100" data-suf="%">0%</span><span class="pstat-l">Client
+            Satisfaction</span></div>
+        <div class="pstat"><span class="pstat-n" data-to="5" data-suf="+">0+</span><span class="pstat-l">Years
+            Experience</span></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FILTERS -->
-<section id="filters">
-  <div class="wrap">
-    <div class="filter-row">
-      <button class="ftag on" data-filter="all">All Projects</button>
-      <button class="ftag" data-filter="explainer">Explainer Videos</button>
-      <button class="ftag" data-filter="product">Product Demos</button>
-      <button class="ftag" data-filter="promo">Promotional</button>
-      <button class="ftag" data-filter="uiux">UI/UX Animation</button>
-      <button class="ftag" data-filter="brand">Brand Motion</button>
+  <!-- FILTERS -->
+  <section id="filters">
+    <div class="wrap">
+      <div class="filter-row">
+        <button class="ftag on" data-filter="all">All Projects</button>
+        <button class="ftag" data-filter="explainer">Explainer Videos</button>
+        <button class="ftag" data-filter="product">Product Demos</button>
+        <button class="ftag" data-filter="promo">Promotional</button>
+        <button class="ftag" data-filter="uiux">UI/UX Animation</button>
+        <button class="ftag" data-filter="brand">Brand Motion</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- GRID -->
-<section id="pgrid">
-  <div class="wrap">
-    <div class="grid" id="cardGrid">
+  <!-- GRID -->
+  <section id="pgrid">
+    <div class="wrap">
+      <div class="grid" id="cardGrid">
 
-      <!-- CARD 1 -->
-      <div class="pcard rv" data-cat="explainer" data-id="0">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+        <!-- CARD 1 -->
+        <div class="pcard rv" data-cat="explainer" data-id="0">
+          <div class="pcard-thumb">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Rk3NoCbwouI" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <span class="pcard-cat">Explainer</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
           </div>
-          <span class="pcard-cat">Explainer</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Plivra</p>
-          <h3 class="pcard-title">SaaS Platform Explainer — Turning a Complex Dashboard Into a 90-Second Story</h3>
-          <p class="pcard-desc">Plivra needed their platform's value communicated clearly for a product launch campaign targeting enterprise buyers unfamiliar with the product.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span><strong>+42% demo request rate</strong> within 30 days of launch</span></div>
-          <div class="pcard-tags"><span class="ptag">2D Animation</span><span class="ptag">After Effects</span><span class="ptag">SaaS</span></div>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="pcard rv d1" data-cat="product" data-id="1">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div>
+          <div class="pcard-body">
+            <p class="pcard-client">Plivra</p>
+            <h3 class="pcard-title">SaaS Platform Explainer — Turning a Complex Dashboard Into a 90-Second Story</h3>
+            <p class="pcard-desc">This explainer video transforms Plivra's complex SaaS dashboard into a clear 90-second
+              narrative, driving enterprise engagement and demo requests.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg><span><strong>+42% demo request rate</strong> within 30 days of launch</span></div>
+            <div class="pcard-tags"><span class="ptag">2D Animation</span><span class="ptag">After Effects</span><span
+                class="ptag">SaaS</span></div>
           </div>
-          <span class="pcard-cat">Product Demo</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Quickcollect</p>
-          <h3 class="pcard-title">Fintech Product Demo — Showing How Payments Work in Under 2 Minutes</h3>
-          <p class="pcard-desc">Quickcollect's payment flow was dropping users mid-onboarding. A clear animated demo was needed to show the product's simplicity before sign-up.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg><span><strong>Drop-off reduced by 31%</strong> at the onboarding stage</span></div>
-          <div class="pcard-tags"><span class="ptag">3D Animation</span><span class="ptag">Blender</span><span class="ptag">Fintech</span></div>
-        </div>
-      </div>
 
-      <!-- CARD 3 -->
-      <div class="pcard rv d2" data-cat="promo" data-id="2">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+        <!-- CARD 2 -->
+        <div class="pcard rv d1" data-cat="product" data-id="1">
+          <div class="pcard-thumb">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/74j-l-0pw68" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <span class="pcard-cat">Product Demo</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
           </div>
-          <span class="pcard-cat">Promotional</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Haliso</p>
-          <h3 class="pcard-title">AI Product Launch — A Campaign Video That Made People Stop Scrolling</h3>
-          <p class="pcard-desc">Haliso's AI tool needed a launch video that felt premium and exciting — not another generic tech montage. Built for social-first distribution.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg><span><strong>2.4M impressions</strong> across LinkedIn and Twitter in week one</span></div>
-          <div class="pcard-tags"><span class="ptag">Motion Graphics</span><span class="ptag">AI Brand</span><span class="ptag">Social</span></div>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="pcard rv d3" data-cat="uiux" data-id="3">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div class="pcard-body">
+            <p class="pcard-client">Quickcollect</p>
+            <h3 class="pcard-title">Fintech Product Demo — Showing How Payments Work in Under 2 Minutes</h3>
+            <p class="pcard-desc">Quickcollect's payment flow was dropping users mid-onboarding. A clear animated demo
+              was needed to show the product's simplicity before sign-up.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+                <polyline points="16 17 22 17 22 11" />
+              </svg><span><strong>Drop-off reduced by 31%</strong> at the onboarding stage</span></div>
+            <div class="pcard-tags"><span class="ptag">3D Animation</span><span class="ptag">Blender</span><span
+                class="ptag">Fintech</span></div>
           </div>
-          <span class="pcard-cat">UI/UX Animation</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Revizze</p>
-          <h3 class="pcard-title">App UI Animation System — Making a Review Platform Feel Alive</h3>
-          <p class="pcard-desc">Revizze's app felt flat and static. I designed a full animation system for their mobile UI — from micro-interactions to page transitions.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span><strong>App Store rating up from 3.2 to 4.6</strong> post-redesign launch</span></div>
-          <div class="pcard-tags"><span class="ptag">UI Motion</span><span class="ptag">Figma</span><span class="ptag">Prototyping</span></div>
-        </div>
-      </div>
 
-      <!-- CARD 5 -->
-      <div class="pcard rv d4" data-cat="explainer" data-id="4">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <!-- CARD 3 -->
+        <div class="pcard rv d2" data-cat="promo" data-id="2">
+          <div class="pcard-thumb">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/gLqxiHWS610" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <span class="pcard-cat">Promotional</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
           </div>
-          <span class="pcard-cat">Explainer</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Kajota</p>
-          <h3 class="pcard-title">B2B SaaS Explainer — Breaking Down a Multi-Feature Platform in 2 Minutes</h3>
-          <p class="pcard-desc">Kajota's sales team was struggling to explain the product during demos. A tight, visual explainer replaced a 20-slide deck for their pitch process.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span><strong>Sales cycle shortened by 3 weeks</strong> on average after deployment</span></div>
-          <div class="pcard-tags"><span class="ptag">2D Animation</span><span class="ptag">Whiteboard Style</span><span class="ptag">B2B</span></div>
-        </div>
-      </div>
-
-      <!-- CARD 6 -->
-      <div class="pcard rv d5" data-cat="brand" data-id="5">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="pcard-body">
+            <p class="pcard-client">Haliso</p>
+            <h3 class="pcard-title">AI Product Launch — A Campaign Video That Made People Stop Scrolling</h3>
+            <p class="pcard-desc">Haliso's AI tool needed a launch video that felt premium and exciting — not another
+              generic tech montage. Built for social-first distribution.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="2" />
+                <path
+                  d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14" />
+              </svg><span><strong>2.4M impressions</strong> across LinkedIn and Twitter in week one</span></div>
+            <div class="pcard-tags"><span class="ptag">Motion Graphics</span><span class="ptag">AI Brand</span><span
+                class="ptag">Social</span></div>
           </div>
-          <span class="pcard-cat">Brand Motion</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Morec</p>
-          <h3 class="pcard-title">Brand Identity in Motion — Logo Animation &amp; Brand Motion System</h3>
-          <p class="pcard-desc">Morec needed a full motion identity — animated logo, branded lower thirds, social templates, and a brand opening sequence for video content.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span><strong>Brand recognition score up 58%</strong> across customer surveys</span></div>
-          <div class="pcard-tags"><span class="ptag">Logo Animation</span><span class="ptag">Brand System</span><span class="ptag">After Effects</span></div>
-        </div>
-      </div>
 
-      <!-- CARD 7 -->
-      <div class="pcard rv" data-cat="product" data-id="6">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <!-- CARD 4 -->
+        <div class="pcard rv d3" data-cat="uiux" data-id="3">
+          <div class="pcard-thumb">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BGMCvHMxhV8" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <span class="pcard-cat">UI/UX Animation</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
           </div>
-          <span class="pcard-cat">Product Demo</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
-        </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Ucee</p>
-          <h3 class="pcard-title">EdTech Product Demo — Showing the Learning Journey from Day One</h3>
-          <p class="pcard-desc">Ucee's onboarding flow needed a visual walkthrough that made the platform feel easy and welcoming to first-time users with no tech background.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span><strong>Course completion rate up 27%</strong> after in-app video guide launch</span></div>
-          <div class="pcard-tags"><span class="ptag">Screen Animation</span><span class="ptag">Illustrator</span><span class="ptag">EdTech</span></div>
-        </div>
-      </div>
-
-      <!-- CARD 8 -->
-      <div class="pcard rv d1" data-cat="promo" data-id="7">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+          <div class="pcard-body">
+            <p class="pcard-client">Revizze</p>
+            <h3 class="pcard-title">App UI Animation System — Making a Review Platform Feel Alive</h3>
+            <p class="pcard-desc">Revizze's app felt flat and static. I designed a full animation system for their
+              mobile UI — from micro-interactions to page transitions.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg><span><strong>App Store rating up from 3.2 to 4.6</strong> post-redesign launch</span></div>
+            <div class="pcard-tags"><span class="ptag">UI Motion</span><span class="ptag">Figma</span><span
+                class="ptag">Prototyping</span></div>
           </div>
-          <span class="pcard-cat">Promotional</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Plivra</p>
-          <h3 class="pcard-title">Feature Release Campaign — Three Videos, One Product Update, Maximum Noise</h3>
-          <p class="pcard-desc">A series of three 30-second animated social videos for Plivra's Q3 feature release, each targeting a different audience segment on different platforms.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span><strong>Feature adoption 3x higher</strong> vs. previous release with no video</span></div>
-          <div class="pcard-tags"><span class="ptag">Social Video</span><span class="ptag">Series</span><span class="ptag">Product Marketing</span></div>
-        </div>
-      </div>
 
-      <!-- CARD 9 -->
-      <div class="pcard rv d2" data-cat="brand" data-id="8">
-        <div class="pcard-thumb">
-          <div class="pcard-thumb-ph">
-            <div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <!-- CARD 5 -->
+        <div class="pcard rv d4" data-cat="explainer" data-id="4">
+          <div class="pcard-thumb">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/74j-l-0pw68" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <span class="pcard-cat">Explainer</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
           </div>
-          <span class="pcard-cat">Brand Motion</span>
-          <div class="pcard-overlay"><div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+          <div class="pcard-body">
+            <p class="pcard-client">Kajota</p>
+            <h3 class="pcard-title">B2B SaaS Explainer — Breaking Down a Multi-Feature Platform in 2 Minutes</h3>
+            <p class="pcard-desc">Kajota's sales team was struggling to explain the product during demos. A tight,
+              visual explainer replaced a 20-slide deck for their pitch process.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg><span><strong>Sales cycle shortened by 3 weeks</strong> on average after deployment</span></div>
+            <div class="pcard-tags"><span class="ptag">2D Animation</span><span class="ptag">Whiteboard
+                Style</span><span class="ptag">B2B</span></div>
+          </div>
         </div>
-        <div class="pcard-body">
-          <p class="pcard-client">Haliso</p>
-          <h3 class="pcard-title">3D Brand World — Building a Visual Universe for an AI Startup</h3>
-          <p class="pcard-desc">Haliso needed a 3D motion identity that felt distinctive in the AI space. Developed a signature visual language using abstract geometry and data-flow metaphors.</p>
-          <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg><span><strong>Featured in 3 design publications</strong> and used in $2M seed deck</span></div>
-          <div class="pcard-tags"><span class="ptag">3D Motion</span><span class="ptag">Blender</span><span class="ptag">AI Brand</span></div>
-        </div>
-      </div>
 
+        <!-- CARD 6 -->
+        <div class="pcard rv d5" data-cat="brand" data-id="5">
+          <div class="pcard-thumb">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/qIa23UIv9FY" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+            <span class="pcard-cat">Brand Motion</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-client">Morec</p>
+            <h3 class="pcard-title">Brand Identity in Motion — Logo Animation &amp; Brand Motion System</h3>
+            <p class="pcard-desc">Morec needed a full motion identity — animated logo, branded lower thirds, social
+              templates, and a brand opening sequence for video content.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+              </svg><span><strong>Brand recognition score up 58%</strong> across customer surveys</span></div>
+            <div class="pcard-tags"><span class="ptag">Logo Animation</span><span class="ptag">Brand System</span><span
+                class="ptag">After Effects</span></div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="pcard rv" data-cat="product" data-id="6">
+          <div class="pcard-thumb">
+            <div class="pcard-thumb-ph">
+              <div class="thumb-icon"><svg viewBox="0 0 24 24">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg></div>
+            </div>
+            <span class="pcard-cat">Product Demo</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-client">Ucee</p>
+            <h3 class="pcard-title">EdTech Product Demo — Showing the Learning Journey from Day One</h3>
+            <p class="pcard-desc">Ucee's onboarding flow needed a visual walkthrough that made the platform feel easy
+              and welcoming to first-time users with no tech background.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg><span><strong>Course completion rate up 27%</strong> after in-app video guide launch</span></div>
+            <div class="pcard-tags"><span class="ptag">Screen Animation</span><span class="ptag">Illustrator</span><span
+                class="ptag">EdTech</span></div>
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="pcard rv d1" data-cat="promo" data-id="7">
+          <div class="pcard-thumb">
+            <div class="pcard-thumb-ph">
+              <div class="thumb-icon"><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="10 8 16 12 10 16 10 8" />
+                </svg></div>
+            </div>
+            <span class="pcard-cat">Promotional</span>
+            <div class="pcard-overlay">
+              <div class="view-btn">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-client">Plivra</p>
+            <h3 class="pcard-title">Feature Release Campaign — Three Videos, One Product Update, Maximum Noise</h3>
+            <p class="pcard-desc">A series of three 30-second animated social videos for Plivra's Q3 feature release,
+              each targeting a different audience segment on different platforms.</p>
+            <div class="pcard-result"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg><span><strong>Feature adoption 3x higher</strong> vs. previous release with no video</span></div>
+            <div class="pcard-tags"><span class="ptag">Social Video</span><span class="ptag">Series</span><span
+                class="ptag">Product Marketing</span></div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA STRIP -->
+ <!-- CTA STRIP -->
 <section style="position:relative;z-index:10;padding:80px 0;text-align:center;border-top:1px solid var(--b)">
   <div class="wrap">
-    <div class="eye rv" style="justify-content:center">Ready to Add Your Brand to This List?</div>
-    <h2 class="rv d1" style="font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(3rem,6vw,6rem);line-height:.95;letter-spacing:2px;margin:18px 0 24px">Let's build something<br><span class="ac">people remember.</span></h2>
-    <div class="rv d2" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="https://mainstack.com/femi_maven" target="_blank" class="btn-p">
-        See Full Portfolio
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+    <div class="eye rv">Ready to Start</div>
+    <h2 class="rv d1"
+      style="font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(3rem,6vw,6rem);line-height:.95;letter-spacing:2px;margin:18px 0 24px">
+      Let's make something<br><span class="ac">great.</span></h2>
+    <p class="rv d2" style="font-size:1.05rem;color:var(--tm);max-width:580px;margin:0 auto 32px;line-height:1.8;font-weight:300;">
+      Your product deserves to be understood in seconds. Let's talk about what motion can do for your brand.</p>
+    <div class="rv d3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://cal.com/femi-maven" target="_blank" class="btn-p">
+        Book a Discovery Call
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
       </a>
-      <a href="mailto:femimaven@gmail.com" class="btn-g">Start a Project</a>
+      <a href="mailto:femimaven@gmail.com" class="btn-g">Email Me Directly</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <a href="femi-maven.html" class="flogo">FEMI<em>.</em>MAVEN</a>
-  <p class="fcopy">© 2025 Femi Maven · All rights reserved.</p>
-  <div class="flinks">
-    <a href="femi-maven.html">Home</a>
-    <a href="mailto:femimaven@gmail.com">Email</a>
-    <a href="https://mainstack.com/femi_maven" target="_blank">Portfolio</a>
-  </div>
-</footer>
+  <footer>
+    <a href="femi-maven.html" class="flogo">FEMI<em>.</em>MAVEN</a>
+    <p class="fcopy">© 2025 Femi Maven · All rights reserved.</p>
+    <div class="flinks">
+      <a href="femi-maven.html">Home</a>
+      <a href="mailto:femimaven@gmail.com">Email</a>
+      <a href="https://mainstack.com/femi_maven" target="_blank">Portfolio</a>
+    </div>
+  </footer>
 
-<!-- CASE STUDY MODAL -->
-<div id="modal-bg">
-  <div id="modal">
-    <button class="modal-close" id="modalClose">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <div class="modal-visual" id="modalVisual">
-      <span class="mvc tl"></span><span class="mvc tr"></span>
-      <span class="mvc bl"></span><span class="mvc br"></span>
-      <div class="modal-vis-ph" id="modalVisPh">
-        <div class="modal-play" id="modalPlay">
-          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+  <!-- CASE STUDY MODAL -->
+  <div id="modal-bg">
+    <div id="modal">
+      <button class="modal-close" id="modalClose">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div class="modal-visual" id="modalVisual">
+        <span class="mvc tl"></span><span class="mvc tr"></span>
+        <span class="mvc bl"></span><span class="mvc br"></span>
+        <div class="modal-vis-ph" id="modalVisPh">
+          <div class="modal-play" id="modalPlay">
+            <svg viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <p class="modal-vis-label">Project Preview — Replace with actual video</p>
         </div>
-        <p class="modal-vis-label">Project Preview — Replace with actual video</p>
+      </div>
+      <div class="modal-content">
+        <div class="modal-cat-row">
+          <span class="modal-cat" id="mCat">Category</span>
+          <span class="modal-client-tag" id="mClient">Client</span>
+        </div>
+        <h2 class="modal-title" id="mTitle">Project Title</h2>
+        <p class="modal-tagline" id="mTagline">Project description</p>
+
+        <div class="modal-3col">
+          <div class="m3cell">
+            <div class="m3label"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>The Brief</div>
+            <p class="m3val" id="mBrief">—</p>
+          </div>
+          <div class="m3cell">
+            <div class="m3label"><svg viewBox="0 0 24 24">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>My Approach</div>
+            <p class="m3val" id="mApproach">—</p>
+          </div>
+          <div class="m3cell">
+            <div class="m3label"><svg viewBox="0 0 24 24">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>The Outcome</div>
+            <p class="m3val" id="mOutcome">—</p>
+          </div>
+        </div>
+
+        <div class="ba-wrap">
+          <p class="ba-title">Before &amp; After</p>
+          <div class="ba-grid">
+            <div class="ba-card before">
+              <div class="ba-head"><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="15" y1="9" x2="9" y2="15" />
+                  <line x1="9" y1="9" x2="15" y2="15" />
+                </svg>Before</div>
+              <p class="ba-text" id="mBefore">—</p>
+            </div>
+            <div class="ba-card after">
+              <div class="ba-head"><svg viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>After</div>
+              <p class="ba-text" id="mAfter">—</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-wrap">
+          <p class="ba-title">Key Results</p>
+          <div class="results-grid" id="mResults"></div>
+        </div>
+
+        <div style="margin-bottom:24px">
+          <p class="ba-title">Tools Used</p>
+          <div class="tools-row" id="mTools"></div>
+        </div>
+
+        <div class="modal-footer">
+          <a href="https://cal.com/femi-maven" target="_blank" class="btn-p">
+            Book a Call Now
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+          <!-- <a href="mailto:femimaven@gmail.com" class="btn-g">Start a Similar Project</a> -->
+        </div>
       </div>
     </div>
-    <div class="modal-content">
-      <div class="modal-cat-row">
-        <span class="modal-cat" id="mCat">Category</span>
-        <span class="modal-client-tag" id="mClient">Client</span>
-      </div>
-      <h2 class="modal-title" id="mTitle">Project Title</h2>
-      <p class="modal-tagline" id="mTagline">Project description</p>
-
-      <div class="modal-3col">
-        <div class="m3cell">
-          <div class="m3label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>The Brief</div>
-          <p class="m3val" id="mBrief">—</p>
-        </div>
-        <div class="m3cell">
-          <div class="m3label"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>My Approach</div>
-          <p class="m3val" id="mApproach">—</p>
-        </div>
-        <div class="m3cell">
-          <div class="m3label"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>The Outcome</div>
-          <p class="m3val" id="mOutcome">—</p>
-        </div>
-      </div>
-
-      <div class="ba-wrap">
-        <p class="ba-title">Before &amp; After</p>
-        <div class="ba-grid">
-          <div class="ba-card before">
-            <div class="ba-head"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div>
-            <p class="ba-text" id="mBefore">—</p>
-          </div>
-          <div class="ba-card after">
-            <div class="ba-head"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>After</div>
-            <p class="ba-text" id="mAfter">—</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="results-wrap">
-        <p class="ba-title">Key Results</p>
-        <div class="results-grid" id="mResults"></div>
-      </div>
-
-      <div style="margin-bottom:24px">
-        <p class="ba-title">Tools Used</p>
-        <div class="tools-row" id="mTools"></div>
-      </div>
-
-      <div class="modal-footer">
-        <a href="https://cal.com/femi-maven" target="_blank" class="btn-p">
-          Book a Call Now
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-        <!-- <a href="mailto:femimaven@gmail.com" class="btn-g">Start a Similar Project</a> -->
-      </div>
-    </div>
   </div>
-</div>
 
-<script>
-(function(){
-"use strict";
+  <script>
+    (function () {
+      "use strict";
 
-/* ── CASE STUDY DATA ── */
-var PROJECTS = [
-  {
-    cat:"Explainer", client:"Plivra",
-    title:"SaaS Platform Explainer — Turning a Complex Dashboard Into a 90-Second Story",
-    tagline:"Plivra needed their platform's core value communicated clearly for an enterprise audience with zero prior product knowledge. The challenge: explain a 14-feature dashboard in under 90 seconds without dumbing it down.",
-    brief:"Create a 90-second explainer video for Plivra's product launch targeting enterprise buyers. The video needed to live on the homepage, in sales decks, and run as a paid ad on LinkedIn.",
-    approach:"I stripped the product down to a single hero use case — saving 3 hours per week per team member — and built the entire narrative around that one transformation. Clean 2D animation with data visualisations showing real numbers.",
-    outcome:"The video became the #1 asset in Plivra's sales cycle. Reps now send it before every discovery call, and the homepage conversion rate jumped within the first month of use.",
-    before:"Prospects visited the homepage and left without booking a demo — bounce rate was 74%. Sales reps were spending 20 minutes per call explaining the product before any real conversation started.",
-    after:"Bounce rate dropped to 48%. Demo requests up 42% in the first 30 days. Sales reps now use the video to pre-educate, cutting call time by an average of 12 minutes.",
-    results:[{n:"42%",l:"More Demo Requests"},{n:"26pt",l:"Bounce Rate Drop"},{n:"12min",l:"Saved Per Sales Call"}],
-    tools:["After Effects","Adobe Illustrator","Premiere Pro","Audition"]
-  },
-  {
-    cat:"Product Demo", client:"Quickcollect",
-    title:"Fintech Product Demo — Showing How Payments Work in Under 2 Minutes",
-    tagline:"Quickcollect's payment collection tool was seeing high sign-up intent but users were dropping off during onboarding. The product worked well — the problem was clarity, not functionality.",
-    brief:"Build an animated product walkthrough that shows the full payment collection flow end-to-end. Target: reduce drop-off at the onboarding stage and increase activation rate.",
-    approach:"I mapped the entire user journey and identified the 3 moments where confusion peaked. Built a 3D animated walkthrough of the actual product UI — real screens, real flow, no mockup — with voiceover guiding each step.",
-    outcome:"Placed at the top of the onboarding flow, the video gave users confidence before they touched the product. Activation rate increased significantly and the support team saw fewer 'how do I start' tickets.",
-    before:"31% of new sign-ups were abandoning onboarding before completing their first payment setup. Support tickets were high volume and low-complexity — users just didn't know where to start.",
-    after:"Onboarding drop-off reduced by 31%. Support ticket volume down 22%. Users who watched the video were 2.4x more likely to complete their first transaction within 24 hours.",
-    results:[{n:"31%",l:"Less Drop-off"},{n:"2.4x",l:"Faster Activation"},{n:"22%",l:"Fewer Support Tickets"}],
-    tools:["Blender","Cinema 4D","After Effects","Figma"]
-  },
-  {
-    cat:"Promotional", client:"Haliso",
-    title:"AI Product Launch — A Campaign Video That Made People Stop Scrolling",
-    tagline:"Haliso's AI tool was launching into a crowded market. The launch video needed to feel genuinely different — not another tech startup montage with stock footage and buzzwords.",
-    brief:"Create a 60-second launch video for social-first distribution across LinkedIn and Twitter/X. The brand needed to feel premium, human, and exciting — not corporate or overhyped.",
-    approach:"Ditched stock footage entirely. Built a fully animated world using abstract 3D geometry to represent how Haliso's AI processes information. Wrote copy that focused on the human outcome, not the technology.",
-    outcome:"The video outperformed every other asset in Haliso's launch campaign. It became a template for how the brand communicates on social going forward.",
-    before:"No visual brand language. Marketing relied on text posts and product screenshots. Engagement rate on social: 1.2%. The brand had no differentiated visual identity to stand on.",
-    after:"Launch video hit 2.4M impressions in week one. LinkedIn engagement rate: 8.7%. The brand was cited in 3 design publications. Used in the seed fundraising deck.",
-    results:[{n:"2.4M",l:"Week One Impressions"},{n:"8.7%",l:"LinkedIn Engagement"},{n:"3",l:"Design Publications"}],
-    tools:["Blender","Cinema 4D","After Effects","DaVinci Resolve"]
-  },
-  {
-    cat:"UI/UX Animation", client:"Revizze",
-    title:"App UI Animation System — Making a Review Platform Feel Alive",
-    tagline:"Revizze's review platform worked well but felt clunky and static. Users described it as 'functional but uninspiring.' The design team needed a motion system, not just a few animations.",
-    brief:"Design and deliver a comprehensive UI animation system for Revizze's mobile app — including micro-interactions, loading states, page transitions, and feedback animations.",
-    approach:"Started with a motion audit of every screen. Identified 22 interaction points with no animation feedback. Built a system of 4 animation principles (speed, easing, scale, opacity) and applied them consistently across the app.",
-    outcome:"The animation system shipped with the v2.0 redesign. Users reported the app feeling 'faster' even though load times didn't change — a classic effect of well-timed animation. App Store rating climbed.",
-    before:"App Store rating sitting at 3.2 stars. Top complaint in reviews: 'feels cheap and unfinished.' Users spending less time per session than the industry average for the category.",
-    after:"App Store rating: 4.6 stars. 'Feels polished' became one of the most-used words in App Store reviews. Session time up 34%. Daily active users increased 19% within 60 days.",
-    results:[{n:"4.6",l:"App Store Rating"},{n:"34%",l:"Longer Sessions"},{n:"19%",l:"More Daily Users"}],
-    tools:["Figma","After Effects","Principle","Lottie"]
-  },
-  {
-    cat:"Explainer", client:"Kajota",
-    title:"B2B SaaS Explainer — Breaking Down a Multi-Feature Platform in 2 Minutes",
-    tagline:"Kajota's sales team was relying on a 20-slide deck to explain a product that could be shown in 2 minutes. The pitch was losing deals in the first 10 minutes of every meeting.",
-    brief:"Replace the slide deck with a 2-minute animated explainer that could be used at the top of every sales call, on the website, and in cold outreach sequences.",
-    approach:"Interviewed 6 members of the sales team to understand what questions prospects always asked. Built the narrative around answering those 6 questions in sequence. Whiteboard-style animation with a conversational tone.",
-    outcome:"The video replaced the deck as the primary sales tool. It travels further too — prospects are sharing it internally with decision-makers before they've even spoken to a Kajota rep.",
-    before:"Average sales cycle: 8 weeks. Discovery calls running 45-60 minutes with most of the time spent on basic product explanation rather than qualification. 1 in 4 deals lost after the first call.",
-    after:"Average sales cycle: 5 weeks. Discovery calls now average 28 minutes. First-call-to-second-call conversion up 38%. The video is forwarded internally by 60% of prospects.",
-    results:[{n:"3wks",l:"Shorter Sales Cycle"},{n:"38%",l:"Better Call Conversion"},{n:"60%",l:"Internal Forward Rate"}],
-    tools:["After Effects","Adobe Illustrator","Audition","Premiere Pro"]
-  },
-  {
-    cat:"Brand Motion", client:"Morec",
-    title:"Brand Identity in Motion — Logo Animation &amp; Full Brand Motion System",
-    tagline:"Morec had a strong visual identity on paper but no motion language. Every video they made felt disconnected from their brand. They needed a system, not just a logo animation.",
-    brief:"Develop a complete brand motion system: animated logo (3 variants), branded lower thirds, social video templates, and a signature opening sequence for all video content.",
-    approach:"Extracted the 3 core visual principles from Morec's static brand guide (precision, speed, clarity) and translated each into motion properties: easing curves, timing, and spatial movement patterns.",
-    outcome:"Morec now has a fully consistent motion language across every video they produce. Their marketing team uses the templates independently. Brand recognition in customer surveys jumped.",
-    before:"Each video Morec produced looked like it came from a different company. Brand recognition in customer surveys: 29%. Marketing team had no motion templates to work from independently.",
-    after:"Brand consistency score: 91% (up from 29%). Customer survey recognition up 58%. Marketing team produces 4x more video content using the template system. 3 industry publications featured the brand identity.",
-    results:[{n:"58%",l:"Brand Recognition Up"},{n:"91%",l:"Consistency Score"},{n:"4x",l:"More Content Output"}],
-    tools:["After Effects","Cinema 4D","Illustrator","Premiere Pro"]
-  },
-  {
-    cat:"Product Demo", client:"Ucee",
-    title:"EdTech Product Demo — Showing the Learning Journey from Day One",
-    tagline:"Ucee's learning platform had strong course content but users weren't getting started. The onboarding experience felt overwhelming. A guided video walk-through was the solution.",
-    brief:"Produce an in-app video guide showing the first 10 minutes of the Ucee experience — course selection, the learning interface, progress tracking, and community features.",
-    approach:"Shot an annotated walkthrough of the actual platform with screen animations layered on top — highlights, callouts, progress indicators. Kept it warm and encouraging, not tutorial-dry.",
-    outcome:"The video was embedded at the first login screen. Users who watched it before starting completed their first course at a dramatically higher rate and rated the platform higher on first-day experience surveys.",
-    before:"Course completion rate: 34%. First-session drop-off rate: 62%. Users cited 'didn't know where to start' as the #1 reason for not returning after sign-up.",
-    after:"Course completion rate: 61% (up 27%). First-session drop-off: 38%. 'Easy to get started' became the top positive theme in user feedback surveys within 30 days.",
-    results:[{n:"27%",l:"Higher Completion Rate"},{n:"24pt",l:"Drop-off Reduction"},{n:"30d",l:"Impact Timeframe"}],
-    tools:["After Effects","Illustrator","Premiere Pro","Lottie"]
-  },
-  {
-    cat:"Promotional", client:"Plivra",
-    title:"Feature Release Campaign — Three Videos, One Product Update, Maximum Noise",
-    tagline:"Plivra's Q3 feature release included three major updates targeting three different user segments. One generic release video wasn't going to work. Three targeted videos were needed.",
-    brief:"Produce three 30-second animated videos — one per feature — each targeting a specific persona (operations, finance, executive). Each video needed to work natively on LinkedIn and Twitter.",
-    approach:"Designed a shared visual language across all three videos (same animation style, same transitions, same brand elements) while making the core messaging entirely different for each persona.",
-    outcome:"Feature adoption exceeded any previous release by a significant margin. The segmented approach meant each video felt personally relevant — not like broadcast marketing.",
-    before:"Previous feature release relied on a single blog post and one generic screenshot carousel. Adoption rate for new features within the first 30 days: 12%. Social reach: ~3,000 impressions.",
-    after:"Feature adoption within 30 days: 37% (3x previous release). Social reach: 280,000 impressions combined. Three videos collectively generated more engagement than all Q2 content combined.",
-    results:[{n:"3x",l:"Feature Adoption Rate"},{n:"280K",l:"Combined Impressions"},{n:"37%",l:"30-Day Adoption"}],
-    tools:["After Effects","Illustrator","Premiere Pro","Audition"]
-  },
-  {
-    cat:"Brand Motion", client:"Haliso",
-    title:"3D Brand World — Building a Visual Universe for an AI Startup",
-    tagline:"Haliso needed to stand out in a sea of identical AI brand visuals — generic blue gradients, floating nodes, abstract networks. They needed a genuinely distinctive 3D visual identity.",
-    brief:"Create a signature 3D motion world that can be used across all brand touchpoints: website hero, social content, presentations, and video backgrounds. Must feel premium and human.",
-    approach:"Built a custom 3D world using abstract geometric forms inspired by neural pathways — but reimagined as natural, organic structures rather than cold tech. Warm lighting, depth, movement.",
-    outcome:"The visual identity became a core part of Haliso's brand story and fundraising materials. It's been featured in design press and cited as an example of how AI companies can have genuine visual character.",
-    before:"No distinctive visual identity. Using stock 3D renders and Canva templates for marketing. Brand described by the team as 'generic but fine.' Investor deck had no visual personality.",
-    after:"Featured in 3 design publications. $2M seed round closed — investors cited brand quality as a differentiator. Team describes the brand as 'finally feeling like us.'",
-    results:[{n:"$2M",l:"Seed Round Closed"},{n:"3",l:"Design Publications"},{n:"∞",l:"Brand Confidence"}],
-    tools:["Blender","Cinema 4D","After Effects","DaVinci Resolve"]
-  }
-];
+      /* ── CASE STUDY DATA ── */
+      var PROJECTS = [
+        {
+          cat: "Explainer", client: "Plivra",
+          title: "SaaS Platform Explainer — Turning a Complex Dashboard Into a 90-Second Story",
+          tagline: "Plivra needed their platform's core value communicated clearly for an enterprise audience with zero prior product knowledge. The challenge: explain a 14-feature dashboard in under 90 seconds without dumbing it down.",
+          brief: "Create a 90-second explainer video for Plivra's product launch targeting enterprise buyers. The video needed to live on the homepage, in sales decks, and run as a paid ad on LinkedIn.",
+          approach: "I stripped the product down to a single hero use case — saving 3 hours per week per team member — and built the entire narrative around that one transformation. Clean 2D animation with data visualisations showing real numbers.",
+          outcome: "The video became the #1 asset in Plivra's sales cycle. Reps now send it before every discovery call, and the homepage conversion rate jumped within the first month of use.",
+          before: "Prospects visited the homepage and left without booking a demo — bounce rate was 74%. Sales reps were spending 20 minutes per call explaining the product before any real conversation started.",
+          after: "Bounce rate dropped to 48%. Demo requests up 42% in the first 30 days. Sales reps now use the video to pre-educate, cutting call time by an average of 12 minutes.",
+          results: [{ n: "42%", l: "More Demo Requests" }, { n: "26pt", l: "Bounce Rate Drop" }, { n: "12min", l: "Saved Per Sales Call" }],
+          tools: ["After Effects", "Adobe Illustrator", "Premiere Pro", "Audition"],
+          video: "https://www.youtube.com/embed/gLqxiHWS610"
+        },
+        {
+          cat: "Product Demo", client: "Quickcollect",
+          title: "Fintech Product Demo — Showing How Payments Work in Under 2 Minutes",
+          tagline: "Quickcollect's payment collection tool was seeing high sign-up intent but users were dropping off during onboarding. The product worked well — the problem was clarity, not functionality.",
+          brief: "Build an animated product walkthrough that shows the full payment collection flow end-to-end. Target: reduce drop-off at the onboarding stage and increase activation rate.",
+          approach: "I mapped the entire user journey and identified the 3 moments where confusion peaked. Built a 3D animated walkthrough of the actual product UI — real screens, real flow, no mockup — with voiceover guiding each step.",
+          outcome: "Placed at the top of the onboarding flow, the video gave users confidence before they touched the product. Activation rate increased significantly and the support team saw fewer 'how do I start' tickets.",
+          before: "31% of new sign-ups were abandoning onboarding before completing their first payment setup. Support tickets were high volume and low-complexity — users just didn't know where to start.",
+          after: "Onboarding drop-off reduced by 31%. Support ticket volume down 22%. Users who watched the video were 2.4x more likely to complete their first transaction within 24 hours.",
+          results: [{ n: "31%", l: "Less Drop-off" }, { n: "2.4x", l: "Faster Activation" }, { n: "22%", l: "Fewer Support Tickets" }],
+          tools: ["Blender", "Cinema 4D", "After Effects", "Figma"],
+          video: "https://www.youtube.com/embed/74j-l-0pw68"
+        },
+        {
+          cat: "Promotional", client: "Haliso",
+          title: "AI Product Launch — A Campaign Video That Made People Stop Scrolling",
+          tagline: "Haliso's AI tool was launching into a crowded market. The launch video needed to feel genuinely different — not another tech startup montage with stock footage and buzzwords.",
+          brief: "Create a 60-second launch video for social-first distribution across LinkedIn and Twitter/X. The brand needed to feel premium, human, and exciting — not corporate or overhyped.",
+          approach: "Ditched stock footage entirely. Built a fully animated world using abstract 3D geometry to represent how Haliso's AI processes information. Wrote copy that focused on the human outcome, not the technology.",
+          outcome: "The video outperformed every other asset in Haliso's launch campaign. It became a template for how the brand communicates on social going forward.",
+          before: "No visual brand language. Marketing relied on text posts and product screenshots. Engagement rate on social: 1.2%. The brand had no differentiated visual identity to stand on.",
+          after: "Launch video hit 2.4M impressions in week one. LinkedIn engagement rate: 8.7%. The brand was cited in 3 design publications. Used in the seed fundraising deck.",
+          results: [{ n: "2.4M", l: "Week One Impressions" }, { n: "8.7%", l: "LinkedIn Engagement" }, { n: "3", l: "Design Publications" }],
+          tools: ["Blender", "Cinema 4D", "After Effects", "DaVinci Resolve"],
+          video: "https://www.youtube.com/embed/gLqxiHWS610"
+        },
+        {
+          cat: "UI/UX Animation", client: "Revizze",
+          title: "App UI Animation System — Making a Review Platform Feel Alive",
+          tagline: "Revizze's review platform worked well but felt clunky and static. Users described it as 'functional but uninspiring.' The design team needed a motion system, not just a few animations.",
+          brief: "Design and deliver a comprehensive UI animation system for Revizze's mobile app — including micro-interactions, loading states, page transitions, and feedback animations.",
+          approach: "Started with a motion audit of every screen. Identified 22 interaction points with no animation feedback. Built a system of 4 animation principles (speed, easing, scale, opacity) and applied them consistently across the app.",
+          outcome: "The animation system shipped with the v2.0 redesign. Users reported the app feeling 'faster' even though load times didn't change — a classic effect of well-timed animation. App Store rating climbed.",
+          before: "App Store rating sitting at 3.2 stars. Top complaint in reviews: 'feels cheap and unfinished.' Users spending less time per session than the industry average for the category.",
+          after: "App Store rating: 4.6 stars. 'Feels polished' became one of the most-used words in App Store reviews. Session time up 34%. Daily active users increased 19% within 60 days.",
+          results: [{ n: "4.6", l: "App Store Rating" }, { n: "34%", l: "Longer Sessions" }, { n: "19%", l: "More Daily Users" }],
+          tools: ["Figma", "After Effects", "Principle", "Lottie"],
+          video: "https://www.youtube.com/embed/BGMCvHMxhV8"
+        },
+        {
+          cat: "Explainer", client: "Kajota",
+          title: "B2B SaaS Explainer — Breaking Down a Multi-Feature Platform in 2 Minutes",
+          tagline: "Kajota's sales team was relying on a 20-slide deck to explain a product that could be shown in 2 minutes. The pitch was losing deals in the first 10 minutes of every meeting.",
+          brief: "Replace the slide deck with a 2-minute animated explainer that could be used at the top of every sales call, on the website, and in cold outreach sequences.",
+          approach: "Interviewed 6 members of the sales team to understand what questions prospects always asked. Built the narrative around answering those 6 questions in sequence. Whiteboard-style animation with a conversational tone.",
+          outcome: "The video replaced the deck as the primary sales tool. It travels further too — prospects are sharing it internally with decision-makers before they've even spoken to a Kajota rep.",
+          before: "Average sales cycle: 8 weeks. Discovery calls running 45-60 minutes with most of the time spent on basic product explanation rather than qualification. 1 in 4 deals lost after the first call.",
+          after: "Average sales cycle: 5 weeks. Discovery calls now average 28 minutes. First-call-to-second-call conversion up 38%. The video is forwarded internally by 60% of prospects.",
+          results: [{ n: "3wks", l: "Shorter Sales Cycle" }, { n: "38%", l: "Better Call Conversion" }, { n: "60%", l: "Internal Forward Rate" }],
+          tools: ["After Effects", "Adobe Illustrator", "Audition", "Premiere Pro"],
+          video: "https://www.youtube.com/embed/74j-l-0pw68"
+        },
+        {
+          cat: "Brand Motion", client: "Morec",
+          title: "Brand Identity in Motion — Logo Animation &amp; Full Brand Motion System",
+          tagline: "Morec had a strong visual identity on paper but no motion language. Every video they made felt disconnected from their brand. They needed a system, not just a logo animation.",
+          brief: "Develop a complete brand motion system: animated logo (3 variants), branded lower thirds, social video templates, and a signature opening sequence for all video content.",
+          approach: "Extracted the 3 core visual principles from Morec's static brand guide (precision, speed, clarity) and translated each into motion properties: easing curves, timing, and spatial movement patterns.",
+          outcome: "Morec now has a fully consistent motion language across every video they produce. Their marketing team uses the templates independently. Brand recognition in customer surveys jumped.",
+          before: "Each video Morec produced looked like it came from a different company. Brand recognition in customer surveys: 29%. Marketing team had no motion templates to work from independently.",
+          after: "Brand consistency score: 91% (up from 29%). Customer survey recognition up 58%. Marketing team produces 4x more video content using the template system. 3 industry publications featured the brand identity.",
+          results: [{ n: "58%", l: "Brand Recognition Up" }, { n: "91%", l: "Consistency Score" }, { n: "4x", l: "More Content Output" }],
+          tools: ["After Effects", "Cinema 4D", "Illustrator", "Premiere Pro"],
+          video: "https://www.youtube.com/embed/qIa23UIv9FY"
+        },
+        {
+          cat: "Product Demo", client: "Ucee",
+          title: "EdTech Product Demo — Showing the Learning Journey from Day One",
+          tagline: "Ucee's learning platform had strong course content but users weren't getting started. The onboarding experience felt overwhelming. A guided video walk-through was the solution.",
+          brief: "Produce an in-app video guide showing the first 10 minutes of the Ucee experience — course selection, the learning interface, progress tracking, and community features.",
+          approach: "Shot an annotated walkthrough of the actual platform with screen animations layered on top — highlights, callouts, progress indicators. Kept it warm and encouraging, not tutorial-dry.",
+          outcome: "The video was embedded at the first login screen. Users who watched it before starting completed their first course at a dramatically higher rate and rated the platform higher on first-day experience surveys.",
+          before: "Course completion rate: 34%. First-session drop-off rate: 62%. Users cited 'didn't know where to start' as the #1 reason for not returning after sign-up.",
+          after: "Course completion rate: 61% (up 27%). First-session drop-off: 38%. 'Easy to get started' became the top positive theme in user feedback surveys within 30 days.",
+          results: [{ n: "27%", l: "Higher Completion Rate" }, { n: "24pt", l: "Drop-off Reduction" }, { n: "30d", l: "Impact Timeframe" }],
+          tools: ["After Effects", "Illustrator", "Premiere Pro", "Lottie"]
+        },
+        {
+          cat: "Promotional", client: "Plivra",
+          title: "Feature Release Campaign — Three Videos, One Product Update, Maximum Noise",
+          tagline: "Plivra's Q3 feature release included three major updates targeting three different user segments. One generic release video wasn't going to work. Three targeted videos were needed.",
+          brief: "Produce three 30-second animated videos — one per feature — each targeting a specific persona (operations, finance, executive). Each video needed to work natively on LinkedIn and Twitter.",
+          approach: "Designed a shared visual language across all three videos (same animation style, same transitions, same brand elements) while making the core messaging entirely different for each persona.",
+          outcome: "Feature adoption exceeded any previous release by a significant margin. The segmented approach meant each video felt personally relevant — not like broadcast marketing.",
+          before: "Previous feature release relied on a single blog post and one generic screenshot carousel. Adoption rate for new features within the first 30 days: 12%. Social reach: ~3,000 impressions.",
+          after: "Feature adoption within 30 days: 37% (3x previous release). Social reach: 280,000 impressions combined. Three videos collectively generated more engagement than all Q2 content combined.",
+          results: [{ n: "3x", l: "Feature Adoption Rate" }, { n: "280K", l: "Combined Impressions" }, { n: "37%", l: "30-Day Adoption" }],
+          tools: ["After Effects", "Illustrator", "Premiere Pro", "Audition"]
+        },
+        {
+          cat: "Brand Motion", client: "Haliso",
+          title: "3D Brand World — Building a Visual Universe for an AI Startup",
+          tagline: "Haliso needed to stand out in a sea of identical AI brand visuals — generic blue gradients, floating nodes, abstract networks. They needed a genuinely distinctive 3D visual identity.",
+          brief: "Create a signature 3D motion world that can be used across all brand touchpoints: website hero, social content, presentations, and video backgrounds. Must feel premium and human.",
+          approach: "Built a custom 3D world using abstract geometric forms inspired by neural pathways — but reimagined as natural, organic structures rather than cold tech. Warm lighting, depth, movement.",
+          outcome: "The visual identity became a core part of Haliso's brand story and fundraising materials. It's been featured in design press and cited as an example of how AI companies can have genuine visual character.",
+          before: "No distinctive visual identity. Using stock 3D renders and Canva templates for marketing. Brand described by the team as 'generic but fine.' Investor deck had no visual personality.",
+          after: "Featured in 3 design publications. $2M seed round closed — investors cited brand quality as a differentiator. Team describes the brand as 'finally feeling like us.'",
+          results: [{ n: "$2M", l: "Seed Round Closed" }, { n: "3", l: "Design Publications" }, { n: "∞", l: "Brand Confidence" }],
+          tools: ["Blender", "Cinema 4D", "After Effects", "DaVinci Resolve"]
+        }
+      ];
 
-/* ── CURSOR ── */
-var DOT=document.getElementById('cd'), RING=document.getElementById('cr');
-var mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my, big=false;
-function sd(x,y){ DOT.style.transform='translate('+(x-4)+'px,'+(y-4)+'px)'; }
-sd(mx,my);
-document.addEventListener('mousemove',function(e){ mx=e.clientX;my=e.clientY;sd(mx,my); });
-var hels=document.querySelectorAll('a,button,.pcard,.ftag,.pill,.modal-close,.modal-play');
-for(var hi=0;hi<hels.length;hi++){
-  hels[hi].addEventListener('mouseenter',function(){ RING.classList.add('big'); big=true; });
-  hels[hi].addEventListener('mouseleave',function(){ RING.classList.remove('big'); big=false; });
-}
-(function ar(){ rx+=(mx-rx)*.11; ry+=(my-ry)*.11; RING.style.transform='translate('+(rx-(big?29:18))+'px,'+(ry-(big?29:18))+'px)'; requestAnimationFrame(ar); })();
+      /* ── CURSOR ── */
+      var DOT = document.getElementById('cd'), RING = document.getElementById('cr');
+      var mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my, big = false;
+      function sd(x, y) { DOT.style.transform = 'translate(' + (x - 4) + 'px,' + (y - 4) + 'px)'; }
+      sd(mx, my);
+      document.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; sd(mx, my); });
+      var hels = document.querySelectorAll('a,button,.pcard,.ftag,.pill,.modal-close,.modal-play');
+      for (var hi = 0; hi < hels.length; hi++) {
+        hels[hi].addEventListener('mouseenter', function () { RING.classList.add('big'); big = true; });
+        hels[hi].addEventListener('mouseleave', function () { RING.classList.remove('big'); big = false; });
+      }
+      (function ar() { rx += (mx - rx) * .11; ry += (my - ry) * .11; RING.style.transform = 'translate(' + (rx - (big ? 29 : 18)) + 'px,' + (ry - (big ? 29 : 18)) + 'px)'; requestAnimationFrame(ar); })();
 
-/* ── PARTICLE CANVAS ── */
-var CV=document.getElementById('bgc'), CTX=CV.getContext('2d'), W,H,PTS=[];
-function rsz(){ W=CV.width=window.innerWidth; H=CV.height=window.innerHeight; }
-rsz(); window.addEventListener('resize',function(){ rsz(); mkp(); });
-function mkp(){ PTS=[]; var n=Math.floor(W*H/14000); for(var i=0;i<n;i++) PTS.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.8+.2,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,a:Math.random()*.35+.06}); }
-mkp();
-function drw(){
-  CTX.clearRect(0,0,W,H);
-  CTX.strokeStyle='rgba(14,165,233,.022)'; CTX.lineWidth=1;
-  for(var gx=0;gx<=W;gx+=90){CTX.beginPath();CTX.moveTo(gx,0);CTX.lineTo(gx,H);CTX.stroke();}
-  for(var gy=0;gy<=H;gy+=90){CTX.beginPath();CTX.moveTo(0,gy);CTX.lineTo(W,gy);CTX.stroke();}
-  for(var pi=0;pi<PTS.length;pi++){
-    var p=PTS[pi]; p.x+=p.vx; p.y+=p.vy;
-    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-    CTX.beginPath();CTX.arc(p.x,p.y,p.r,0,Math.PI*2);CTX.fillStyle='rgba(14,165,233,'+p.a+')';CTX.fill();
-  }
-  for(var ii=0;ii<PTS.length;ii++) for(var jj=ii+1;jj<PTS.length;jj++){
-    var dx=PTS[ii].x-PTS[jj].x,dy=PTS[ii].y-PTS[jj].y,dd=Math.sqrt(dx*dx+dy*dy);
-    if(dd<110){ CTX.beginPath();CTX.moveTo(PTS[ii].x,PTS[ii].y);CTX.lineTo(PTS[jj].x,PTS[jj].y);CTX.strokeStyle='rgba(14,165,233,'+(0.06*(1-dd/110))+')';CTX.lineWidth=.5;CTX.stroke(); }
-  }
-  requestAnimationFrame(drw);
-}
-drw();
+      /* ── PARTICLE CANVAS ── */
+      var CV = document.getElementById('bgc'), CTX = CV.getContext('2d'), W, H, PTS = [];
+      function rsz() { W = CV.width = window.innerWidth; H = CV.height = window.innerHeight; }
+      rsz(); window.addEventListener('resize', function () { rsz(); mkp(); });
+      function mkp() { PTS = []; var n = Math.floor(W * H / 14000); for (var i = 0; i < n; i++) PTS.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * .8 + .2, vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22, a: Math.random() * .35 + .06 }); }
+      mkp();
+      function drw() {
+        CTX.clearRect(0, 0, W, H);
+        CTX.strokeStyle = 'rgba(14,165,233,.022)'; CTX.lineWidth = 1;
+        for (var gx = 0; gx <= W; gx += 90) { CTX.beginPath(); CTX.moveTo(gx, 0); CTX.lineTo(gx, H); CTX.stroke(); }
+        for (var gy = 0; gy <= H; gy += 90) { CTX.beginPath(); CTX.moveTo(0, gy); CTX.lineTo(W, gy); CTX.stroke(); }
+        for (var pi = 0; pi < PTS.length; pi++) {
+          var p = PTS[pi]; p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = W; if (p.x > W) p.x = 0; if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+          CTX.beginPath(); CTX.arc(p.x, p.y, p.r, 0, Math.PI * 2); CTX.fillStyle = 'rgba(14,165,233,' + p.a + ')'; CTX.fill();
+        }
+        for (var ii = 0; ii < PTS.length; ii++) for (var jj = ii + 1; jj < PTS.length; jj++) {
+          var dx = PTS[ii].x - PTS[jj].x, dy = PTS[ii].y - PTS[jj].y, dd = Math.sqrt(dx * dx + dy * dy);
+          if (dd < 110) { CTX.beginPath(); CTX.moveTo(PTS[ii].x, PTS[ii].y); CTX.lineTo(PTS[jj].x, PTS[jj].y); CTX.strokeStyle = 'rgba(14,165,233,' + (0.06 * (1 - dd / 110)) + ')'; CTX.lineWidth = .5; CTX.stroke(); }
+        }
+        requestAnimationFrame(drw);
+      }
+      drw();
 
-/* ── SCROLL REVEAL ── */
-var rvEls=document.querySelectorAll('.rv');
-requestAnimationFrame(function(){
-  for(var i=0;i<rvEls.length;i++) rvEls[i].classList.add('hi');
-  requestAnimationFrame(function(){
-    if(!window.IntersectionObserver){ for(var i=0;i<rvEls.length;i++) rvEls[i].classList.remove('hi'); return; }
-    var obs=new IntersectionObserver(function(entries){
-      for(var i=0;i<entries.length;i++) if(entries[i].isIntersecting){ entries[i].target.classList.remove('hi'); obs.unobserve(entries[i].target); }
-    },{threshold:.08,rootMargin:'0px 0px -20px 0px'});
-    for(var i=0;i<rvEls.length;i++) obs.observe(rvEls[i]);
-  });
-});
+      /* ── SCROLL REVEAL ── */
+      var rvEls = document.querySelectorAll('.rv');
+      requestAnimationFrame(function () {
+        for (var i = 0; i < rvEls.length; i++) rvEls[i].classList.add('hi');
+        requestAnimationFrame(function () {
+          if (!window.IntersectionObserver) { for (var i = 0; i < rvEls.length; i++) rvEls[i].classList.remove('hi'); return; }
+          var obs = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) if (entries[i].isIntersecting) { entries[i].target.classList.remove('hi'); obs.unobserve(entries[i].target); }
+          }, { threshold: .08, rootMargin: '0px 0px -20px 0px' });
+          for (var i = 0; i < rvEls.length; i++) obs.observe(rvEls[i]);
+        });
+      });
 
-/* ── COUNTERS ── */
-function ctr(el){
-  var to=parseInt(el.getAttribute('data-to'),10), suf=el.getAttribute('data-suf')||'';
-  if(!to||el.getAttribute('data-done')) return;
-  el.setAttribute('data-done','1');
-  var dur=1800, t0=performance.now();
-  (function tk(now){ var p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3); el.textContent=Math.floor(e*to)+suf; if(p<1) requestAnimationFrame(tk); else el.textContent=to+suf; })(performance.now());
-}
-var stEls=document.querySelectorAll('[data-to]');
-for(var si=0;si<stEls.length;si++) ctr(stEls[si]);
+      /* ── COUNTERS ── */
+      function ctr(el) {
+        var to = parseInt(el.getAttribute('data-to'), 10), suf = el.getAttribute('data-suf') || '';
+        if (!to || el.getAttribute('data-done')) return;
+        el.setAttribute('data-done', '1');
+        var dur = 1800, t0 = performance.now();
+        (function tk(now) { var p = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(e * to) + suf; if (p < 1) requestAnimationFrame(tk); else el.textContent = to + suf; })(performance.now());
+      }
+      var stEls = document.querySelectorAll('[data-to]');
+      for (var si = 0; si < stEls.length; si++) ctr(stEls[si]);
 
-/* ── FILTER ── */
-var ftags=document.querySelectorAll('.ftag');
-var cards=document.querySelectorAll('.pcard');
-function applyFilter(f){
-  for(var i=0;i<ftags.length;i++) ftags[i].classList.toggle('on', ftags[i].getAttribute('data-filter')===f);
-  var vis=0;
-  for(var j=0;j<cards.length;j++){
-    var show = (f==='all' || cards[j].getAttribute('data-cat')===f);
-    cards[j].style.display = show ? '' : 'none';
-    if(show) vis++;
-  }
-}
-for(var fi=0;fi<ftags.length;fi++){
-  ftags[fi].addEventListener('click',(function(tag){
-    return function(){ applyFilter(tag.getAttribute('data-filter')); };
-  })(ftags[fi]));
-}
+      /* ── FILTER ── */
+      var ftags = document.querySelectorAll('.ftag');
+      var cards = document.querySelectorAll('.pcard');
+      function applyFilter(f) {
+        for (var i = 0; i < ftags.length; i++) ftags[i].classList.toggle('on', ftags[i].getAttribute('data-filter') === f);
+        var vis = 0;
+        for (var j = 0; j < cards.length; j++) {
+          var show = (f === 'all' || cards[j].getAttribute('data-cat') === f);
+          cards[j].style.display = show ? '' : 'none';
+          if (show) vis++;
+        }
+      }
+      for (var fi = 0; fi < ftags.length; fi++) {
+        ftags[fi].addEventListener('click', (function (tag) {
+          return function () { applyFilter(tag.getAttribute('data-filter')); };
+        })(ftags[fi]));
+      }
 
-/* ── MODAL ── */
-var MB=document.getElementById('modal-bg');
-var MC=document.getElementById('modalClose');
+      /* ── MODAL ── */
+      var MB = document.getElementById('modal-bg');
+      var MC = document.getElementById('modalClose');
 
-function openModal(id){
-  var d=PROJECTS[id];
-  if(!d) return;
-  document.getElementById('mCat').textContent=d.cat;
-  document.getElementById('mClient').textContent=d.client;
-  document.getElementById('mTitle').innerHTML=d.title;
-  document.getElementById('mTagline').textContent=d.tagline;
-  document.getElementById('mBrief').textContent=d.brief;
-  document.getElementById('mApproach').textContent=d.approach;
-  document.getElementById('mOutcome').textContent=d.outcome;
-  document.getElementById('mBefore').textContent=d.before;
-  document.getElementById('mAfter').textContent=d.after;
-  // results
-  var rGrid=document.getElementById('mResults'); rGrid.innerHTML='';
-  for(var ri=0;ri<d.results.length;ri++){
-    var rc=document.createElement('div'); rc.className='res-card';
-    rc.innerHTML='<span class="res-num">'+d.results[ri].n+'</span><span class="res-lbl">'+d.results[ri].l+'</span>';
-    rGrid.appendChild(rc);
-  }
-  // tools
-  var tRow=document.getElementById('mTools'); tRow.innerHTML='';
-  for(var ti=0;ti<d.tools.length;ti++){
-    var tc=document.createElement('span'); tc.className='tool-chip'; tc.textContent=d.tools[ti];
-    tRow.appendChild(tc);
-  }
-  MB.classList.add('open');
-  document.body.style.overflow='hidden';
-  MB.scrollTop=0;
-}
-function closeModal(){ MB.classList.remove('open'); document.body.style.overflow=''; }
+      function openModal(id) {
+        var d = PROJECTS[id];
+        if (!d) return;
+        document.getElementById('mCat').textContent = d.cat;
+        document.getElementById('mClient').textContent = d.client;
+        document.getElementById('mTitle').innerHTML = d.title;
+        document.getElementById('mTagline').textContent = d.tagline;
+        document.getElementById('mBrief').textContent = d.brief;
+        document.getElementById('mApproach').textContent = d.approach;
+        document.getElementById('mOutcome').textContent = d.outcome;
+        document.getElementById('mBefore').textContent = d.before;
+        document.getElementById('mAfter').textContent = d.after;
+        // results
+        var rGrid = document.getElementById('mResults'); rGrid.innerHTML = '';
+        for (var ri = 0; ri < d.results.length; ri++) {
+          var rc = document.createElement('div'); rc.className = 'res-card';
+          rc.innerHTML = '<span class="res-num">' + d.results[ri].n + '</span><span class="res-lbl">' + d.results[ri].l + '</span>';
+          rGrid.appendChild(rc);
+        }
+        // tools
+        var tRow = document.getElementById('mTools'); tRow.innerHTML = '';
+        for (var ti = 0; ti < d.tools.length; ti++) {
+          var tc = document.createElement('span'); tc.className = 'tool-chip'; tc.textContent = d.tools[ti];
+          tRow.appendChild(tc);
+        }
+        MB.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        MB.scrollTop = 0;
+      }
+      function closeModal() { MB.classList.remove('open'); document.body.style.overflow = ''; }
 
-for(var ci=0;ci<cards.length;ci++){
-  cards[ci].addEventListener('click',(function(card){
-    return function(){ openModal(parseInt(card.getAttribute('data-id'),10)); };
-  })(cards[ci]));
-}
-MC.addEventListener('click', closeModal);
-MB.addEventListener('click', function(e){ if(e.target===MB) closeModal(); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+      for (var ci = 0; ci < cards.length; ci++) {
+        cards[ci].addEventListener('click', (function (card) {
+          return function () { openModal(parseInt(card.getAttribute('data-id'), 10)); };
+        })(cards[ci]));
+      }
+      MC.addEventListener('click', closeModal);
+      MB.addEventListener('click', function (e) { if (e.target === MB) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-})();
-</script>
+    })();
+  </script>
 </body>
+
 </html>

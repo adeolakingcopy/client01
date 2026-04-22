@@ -1963,8 +1963,9 @@
      }
 
      .about-img-wrap {
+         width: 100%;
          max-width: 340px;
-         min-width: 340px;
+         margin: 0 auto;
      }
 
      .nav-links {
@@ -1997,5 +1998,10 @@
          flex-direction: column;
          gap: 16px;
          text-align: center;
+     }
+
+     .about-img-wrap {
+         width: 100%;
+         max-width: 100%;
      }
  }

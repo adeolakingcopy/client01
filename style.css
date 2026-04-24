@@ -1904,6 +1904,11 @@
      color: var(--ac);
  }
 
+ .foot-links a svg {
+     display: block;
+     transition: stroke .2s;
+ }
+
  /* ─── RESPONSIVE ──────────────────────────── */
  @media(max-width:1080px) {
 
@@ -1931,6 +1936,18 @@
 
      .hero-card {
          /* display: none */
+     }
+
+     .hero-card .fc1 {
+         left: -32px;
+     }
+
+     .hero-card .fc2 {
+         left: -40px;
+     }
+
+     .hero-card .fc3 {
+         right: -28px;
      }
 
      .srv-hd {
@@ -2000,8 +2017,29 @@
          text-align: center;
      }
 
+     .foot-links {
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 16px;
+     }
+
+     .hero-card .fc {
+         display: none;
+     }
+
      .about-img-wrap {
          width: 100%;
          max-width: 100%;
+     }
+ }
+
+ @media(max-width:480px) {
+     footer {
+         padding: 20px 16px;
+     }
+
+     .foot-links {
+         gap: 12px;
+         font-size: 11px;
      }
  }

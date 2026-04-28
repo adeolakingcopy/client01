@@ -2044,8 +2044,8 @@
      }
  }
 
-/* Floating draggable social links */
-.social-float {
+ /* Floating draggable social links */
+ .social-float {
      position: fixed;
      top: 42vh;
      right: 28px;
@@ -2065,11 +2065,11 @@
      touch-action: none;
  }
 
-.social-float:active {
+ .social-float:active {
      cursor: grabbing;
  }
 
-.social-float-head {
+ .social-float-head {
      display: inline-flex;
      align-items: center;
      justify-content: center;
@@ -2082,7 +2082,7 @@
      border-bottom: 1px solid rgba(14, 165, 233, .18);
  }
 
-.social-link {
+ .social-link {
      display: flex;
      align-items: center;
      justify-content: space-between;
@@ -2097,13 +2097,13 @@
      border: 1px solid transparent;
  }
 
-.social-link:hover {
+ .social-link:hover {
      background: rgba(14, 165, 233, .14);
      border-color: rgba(14, 165, 233, .26);
      transform: translateY(-1px);
  }
 
-.social-link svg {
+ .social-link svg {
      width: 18px;
      height: 18px;
      fill: none;
@@ -2111,11 +2111,11 @@
      stroke-width: 1.8;
  }
 
-.social-link span {
+ .social-link span {
      flex: 1;
  }
 
-@media(max-width:920px) {
+ @media(max-width:920px) {
      .social-float {
          top: auto;
          bottom: 24px;

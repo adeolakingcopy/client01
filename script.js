@@ -134,4 +134,57 @@
         for (var csi = 0; csi < statEls.length; csi++) ctObs.observe(statEls[csi]);
     }
 
+    var socialFloat = document.getElementById('socialFloat');
+    if (socialFloat) {
+        var dragging = false;
+        var startX = 0;
+        var startY = 0;
+        var origX = 0;
+        var origY = 0;
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        socialFloat.addEventListener('pointerdown', function (e) {
+            if (!e.target.closest('.social-float-head')) return;
+            dragging = true;
+            socialFloat.setPointerCapture(e.pointerId);
+            var rect = socialFloat.getBoundingClientRect();
+            startX = e.clientX;
+            startY = e.clientY;
+            origX = rect.left;
+            origY = rect.top;
+            socialFloat.style.transition = 'none';
+        });
+
+        socialFloat.addEventListener('pointermove', function (e) {
+            if (!dragging) return;
+            var dx = e.clientX - startX;
+            var dy = e.clientY - startY;
+            var left = origX + dx;
+            var top = origY + dy;
+            var minMargin = 12;
+            var maxX = window.innerWidth - socialFloat.offsetWidth - minMargin;
+            var maxY = window.innerHeight - socialFloat.offsetHeight - minMargin;
+            left = clamp(left, minMargin, maxX);
+            top = clamp(top, minMargin, maxY);
+            socialFloat.style.left = left + 'px';
+            socialFloat.style.top = top + 'px';
+            socialFloat.style.right = 'auto';
+        });
+
+        function stopDrag(e) {
+            if (!dragging) return;
+            dragging = false;
+            if (socialFloat.hasPointerCapture && socialFloat.hasPointerCapture(e.pointerId)) {
+                socialFloat.releasePointerCapture(e.pointerId);
+            }
+            socialFloat.style.transition = '';
+        }
+
+        socialFloat.addEventListener('pointerup', stopDrag);
+        socialFloat.addEventListener('pointercancel', stopDrag);
+    }
+
 })();

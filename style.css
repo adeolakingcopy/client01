@@ -40,6 +40,8 @@
      overflow-x: hidden;
      -webkit-font-smoothing: antialiased;
      cursor: none;
+     max-width: 1444px;
+     margin:auto;
  }
 
  body::before {

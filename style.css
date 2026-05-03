@@ -1633,6 +1633,7 @@
      letter-spacing: -.03em;
      color: var(--tp);
      margin-bottom: 24px;
+     text-transform: capitalize;
  }
 
  .about-head .ac {

@@ -1,4 +1,4 @@
- *,
+  *,
  *::before,
  *::after {
      margin: 0;
@@ -40,8 +40,7 @@
      overflow-x: hidden;
      -webkit-font-smoothing: antialiased;
      cursor: none;
-     max-width: 1444px;
-     margin:auto;
+    
  }
 
  body::before {
@@ -162,6 +161,7 @@
      display: flex;
      flex-direction: column;
      justify-content: center;
+     align-items: center;
      padding: 130px 60px 80px;
      position: relative;
      overflow: hidden;
@@ -253,6 +253,8 @@
      gap: 72px;
      align-items: center;
      max-width: 1280px;
+     width: 100%;
+     margin: 0 auto;
  }
 
  /* HERO LEFT */
@@ -1553,9 +1555,6 @@
      grid-template-columns: 420px 1fr;
      gap: 80px;
      align-items: center;
-     max-width: 1180px;
-     margin: 0 auto;
-     padding: 0 10%;
  }
 
  .about-img-wrap {
@@ -1909,6 +1908,161 @@
  .foot-links a svg {
      display: block;
      transition: stroke .2s;
+ }
+
+ /* ─── MISSING CLASSES FROM EXTERNAL style.css ─── */
+ /* rv = reveal (same behaviour as .r) */
+ .rv {
+     opacity: 0;
+     transform: translateY(28px);
+     transition: opacity .75s cubic-bezier(.4,0,.2,1), transform .75s cubic-bezier(.4,0,.2,1);
+ }
+ .rv.in { opacity: 1; transform: none; }
+
+ /* vshell — video wrapper */
+ .vshell {
+     position: relative;
+     border-radius: 16px;
+     overflow: hidden;
+ }
+
+ /* phc — corner brackets on the video shell */
+ .phc {
+     position: absolute;
+     width: 20px;
+     height: 20px;
+     border-color: var(--ac);
+     border-style: solid;
+     border-width: 0;
+     z-index: 4;
+     pointer-events: none;
+ }
+ .phc.tl { top: 12px; left: 12px; border-top-width: 2px; border-left-width: 2px; }
+ .phc.tr { top: 12px; right: 12px; border-top-width: 2px; border-right-width: 2px; }
+ .phc.bl { bottom: 12px; left: 12px; border-bottom-width: 2px; border-left-width: 2px; }
+ .phc.br { bottom: 12px; right: 12px; border-bottom-width: 2px; border-right-width: 2px; }
+
+ /* .wrap — inner content container used in services */
+ .wrap {
+     max-width: 1180px;
+     margin: 0 auto;
+ }
+
+ /* .eye — section eyebrow label (same as sec-tag) */
+ .eye {
+     display: inline-flex;
+     align-items: center;
+     gap: 10px;
+     font-size: 11px;
+     font-weight: 700;
+     letter-spacing: .12em;
+     text-transform: uppercase;
+     color: var(--ac);
+     margin-bottom: 20px;
+ }
+ .eye::before {
+     content: '';
+     display: block;
+     width: 20px;
+     height: 2px;
+     background: var(--ac);
+     border-radius: 2px;
+ }
+
+ /* .h2 — section heading used in services */
+ .h2 {
+     font-size: clamp(34px, 4vw, 54px);
+     font-weight: 800;
+     line-height: 1.06;
+     letter-spacing: -.03em;
+     color: var(--tp);
+     margin-bottom: 16px;
+ }
+
+ /* ─── ULTRAWIDE / CURVED MONITOR (>1440px) ─── */
+ @media (min-width: 1440px) {
+   .sec-wrap, .wrap {
+     max-width: 1380px;
+     padding: 0 60px;
+   }
+
+   nav {
+     padding-left: max(60px, calc((100vw - 1380px) / 2));
+     padding-right: max(60px, calc((100vw - 1380px) / 2));
+   }
+
+   .showreel-sec {
+     padding-left: max(60px, calc((100vw - 1380px) / 2));
+     padding-right: max(60px, calc((100vw - 1380px) / 2));
+   }
+
+   footer {
+     padding-left: max(60px, calc((100vw - 1380px) / 2));
+     padding-right: max(60px, calc((100vw - 1380px) / 2));
+   }
+
+   .cta-wrap {
+     max-width: 1380px;
+     margin-left: auto;
+     margin-right: auto;
+   }
+
+   .hero-inner {
+     max-width: 1380px;
+   }
+
+   body { font-size: 17px; }
+
+   .hero-desc {
+     max-width: 580px;
+     font-size: 17px;
+   }
+
+   .sec-sub {
+     font-size: 17px;
+     max-width: 620px;
+   }
+ }
+
+ /* ─── 4K / VERY LARGE (>1920px) ─── */
+ @media (min-width: 1920px) {
+   .sec-wrap, .wrap {
+     max-width: 1700px;
+     padding: 0 80px;
+   }
+
+   .hero-inner {
+     max-width: 1700px;
+     grid-template-columns: 1fr 520px;
+     gap: 110px;
+   }
+
+   nav {
+     padding-left: max(80px, calc((100vw - 1700px) / 2));
+     padding-right: max(80px, calc((100vw - 1700px) / 2));
+   }
+
+   .showreel-sec {
+     padding-left: max(80px, calc((100vw - 1700px) / 2));
+     padding-right: max(80px, calc((100vw - 1700px) / 2));
+   }
+
+   footer {
+     padding-left: max(80px, calc((100vw - 1700px) / 2));
+     padding-right: max(80px, calc((100vw - 1700px) / 2));
+   }
+
+   .cta-wrap {
+     max-width: 1700px;
+   }
+
+   body { font-size: 18px; }
+
+   .reel-stage { max-width: 1400px; }
+   .work-cta   { max-width: 1400px; }
+
+   .hero-desc  { max-width: 660px; font-size: 18px; }
+   .sec-sub    { font-size: 18px;  max-width: 700px; }
  }
 
  /* ─── RESPONSIVE ──────────────────────────── */

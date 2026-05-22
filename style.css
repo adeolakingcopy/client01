@@ -2621,10 +2621,14 @@
     @media(max-width:900px) {
       .connect-sec { padding: 80px 28px; }
       .connect-grid { grid-template-columns: 1fr 1fr; }
-      }
-    @media(max-width:560px) {
-      .connect-grid { grid-template-columns: 1fr; }
-    }
+        }
+        /* Make YouTube card span both columns whenever the grid is two columns */
+        .cn-card.youtube { grid-column: 1 / -1; }
+        @media(max-width:560px) {
+            .connect-grid { grid-template-columns: 1fr; }
+            /* Reset spanning when grid becomes single-column */
+            .cn-card.youtube { grid-column: auto; }
+        }
   
  
     .wa-fab {

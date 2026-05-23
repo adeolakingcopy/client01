@@ -86,6 +86,24 @@
 
         gtag('config', 'G-P2E0NEBDM4');
     </script>
+            <!-- WebSite structured data to help search engines surface sitelinks -->
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "url": "https://femimaven.netlify.app/",
+                "name": "Femi Maven",
+                "hasPart": [
+                    { "@type": "SiteNavigationElement", "name": "Showreel", "url": "https://femimaven.netlify.app/#reel" },
+                    { "@type": "SiteNavigationElement", "name": "Services", "url": "https://femimaven.netlify.app/#services" },
+                    { "@type": "SiteNavigationElement", "name": "Process", "url": "https://femimaven.netlify.app/#process" },
+                    { "@type": "SiteNavigationElement", "name": "About", "url": "https://femimaven.netlify.app/#about" },
+                    { "@type": "SiteNavigationElement", "name": "Reviews", "url": "https://femimaven.netlify.app/#reviews" },
+                    { "@type": "SiteNavigationElement", "name": "Portfolio", "url": "https://femimaven.netlify.app/portfolio.html" },
+                    { "@type": "SiteNavigationElement", "name": "Connect", "url": "https://femimaven.netlify.app/#connect" }
+                ]
+            }
+            </script>
 </head>
 
 <body>
@@ -94,7 +112,7 @@
     <div id="ring"></div>
     <canvas id="bgc"></canvas>
     <!-- NAV -->
-    <nav>
+    <nav id="nav">
         <a href="#" class="nav-logo">FEMI<span class="dot">.</span>MAVEN</a>
         <ul class="nav-links">
             <li><a href="#reel">Showreel</a></li>
@@ -209,6 +227,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- BRANDS MARQUEE -->
 
